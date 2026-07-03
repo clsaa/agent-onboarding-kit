@@ -12,6 +12,7 @@
 **清单** — 见 [`skills/INDEX.md`](./skills/INDEX.md)。
 **原理** — 见 [`docs/how-it-works.md`](./docs/how-it-works.md)。
 **贡献** — 见 [`CONTRIBUTING.md`](./CONTRIBUTING.md)。
+**自迭代** — 让 Agent 读 [`SELF-UPDATE.md`](./SELF-UPDATE.md) 自动刷新信息、发现新工具。
 > 星数与适配情况以 2026-07 为准。
 
 ## English
@@ -22,4 +23,5 @@
 **Manifest** — see [`skills/INDEX.md`](./skills/INDEX.md).
 **How it works** — see [`docs/how-it-works.md`](./docs/how-it-works.md).
 **Contributing** — see [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+**Self-iterate** — point your agent at [`SELF-UPDATE.md`](./SELF-UPDATE.md) to refresh data and discover new tools.
 > Star counts and compatibility are as of 2026-07.
