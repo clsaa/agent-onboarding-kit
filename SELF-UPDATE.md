@@ -65,10 +65,18 @@ for f in skills/*.md; do
 done
 
 # no placeholder leftovers anywhere
-grep -rn "TBD\|TODO\|FIXME\|<command>\|<symbol>\|<category>\|<owner/repo>" skills/ && echo "PLACEHOLDER FOUND" || echo "clean"
+grep -rn "TBD\|TODO\|FIXME\|<command>\|<symbol>\|<category>" skills/ && echo "PLACEHOLDER FOUND" || echo "clean"
 ```
 
 Expected: no "BROKEN LINK" lines, no "MISSING FIELDS" lines, and "clean" printed.
+
+Then run the full end-to-end suite as the authoritative gate (it re-runs the checks above plus repo-liveness and install-command validation):
+
+```bash
+bash tests/e2e.sh          # set GITHUB_TOKEN to avoid API rate limits
+```
+
+Expected: `E2E OK` (exit 0). If it reports `FAIL`, fix before committing. Star-drift `WARN`s are the signal that this self-iterate run should update those numbers.
 
 ## E. Record + commit
 

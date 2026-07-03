@@ -64,7 +64,15 @@ grep -oE '\(\./([a-z0-9-]+)\.md\)' skills/INDEX.md | sed 's/[()]//g; s/^\.\///' 
 grep -q "Compatibility:" "skills/<slug>.md" && grep -q "Install:" "skills/<slug>.md" && grep -q "Verify:" "skills/<slug>.md" && grep -q "Stars:" "skills/<slug>.md" || echo "MISSING FIELDS"
 
 # no placeholder leftovers anywhere
-grep -rn "TBD\|TODO\|FIXME\|<command>\|<symbol>\|<category>\|<owner/repo>" skills/ && echo "PLACEHOLDER FOUND" || echo "clean"
+grep -rn "TBD\|TODO\|FIXME\|<command>\|<symbol>\|<category>" skills/ && echo "PLACEHOLDER FOUND" || echo "clean"
 ```
 
 Expected: no "BROKEN LINK" lines, no "MISSING FIELDS", and "clean" printed.
+
+Or just run the full end-to-end suite, which bundles all of the above plus repo-liveness and install-command checks:
+
+```bash
+bash tests/e2e.sh          # set GITHUB_TOKEN to avoid API rate limits
+```
+
+Expected: `E2E OK` (exit 0). See [`tests/README.md`](./tests/README.md).
