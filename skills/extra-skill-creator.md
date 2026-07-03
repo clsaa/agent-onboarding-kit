@@ -1,7 +1,7 @@
 # skill-creator
 - **Category:** Meta-skill: author/edit/eval skills
-- **What it does:** The skill-creator meta-skill from Anthropic's official skills repo, for authoring, editing, and evaluating new skills.
-- **Repo:** https://github.com/anthropics/skills (skill-creator)
+- **What it does:** The skill-creator meta-skill, which lives inside Anthropic's official skills repo (`anthropics/skills`), for authoring, editing, and evaluating new skills.
+- **Repo:** https://github.com/anthropics/skills
 - **Compatibility:** Claude Code ✅ | Codex ⚠️ | OpenCode ⚠️
 - **Install:**
   - Claude Code: `/plugin install example-skills@anthropic-agent-skills` (then use skill-creator)

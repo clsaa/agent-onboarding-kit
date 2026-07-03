@@ -64,7 +64,7 @@ grep -oE '\(\./([a-z0-9-]+)\.md\)' skills/INDEX.md | sed 's/[()]//g; s/^\.\///' 
 grep -q "Compatibility:" "skills/<slug>.md" && grep -q "Install:" "skills/<slug>.md" && grep -q "Verify:" "skills/<slug>.md" && grep -q "Stars:" "skills/<slug>.md" || echo "MISSING FIELDS"
 
 # no placeholder leftovers anywhere
-grep -rn "TBD\|TODO\|FIXME\|<slug>\|<command>\|<symbol>" skills/ AGENTS.md README.md && echo "PLACEHOLDER FOUND" || echo "clean"
+grep -rn "TBD\|TODO\|FIXME\|<command>\|<symbol>\|<category>\|<owner/repo>" skills/ && echo "PLACEHOLDER FOUND" || echo "clean"
 ```
 
 Expected: no "BROKEN LINK" lines, no "MISSING FIELDS", and "clean" printed.

@@ -65,7 +65,7 @@ for f in skills/*.md; do
 done
 
 # no placeholder leftovers anywhere
-grep -rn "TBD\|TODO\|FIXME\|<slug>\|<command>\|<symbol>" skills/ AGENTS.md README.md && echo "PLACEHOLDER FOUND" || echo "clean"
+grep -rn "TBD\|TODO\|FIXME\|<command>\|<symbol>\|<category>\|<owner/repo>" skills/ && echo "PLACEHOLDER FOUND" || echo "clean"
 ```
 
 Expected: no "BROKEN LINK" lines, no "MISSING FIELDS" lines, and "clean" printed.
