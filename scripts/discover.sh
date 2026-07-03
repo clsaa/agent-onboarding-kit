@@ -58,9 +58,11 @@ QUERIES=(
 )
 
 raw="$(mktemp)"
+total_items=0
 for q in "${QUERIES[@]}"; do
   # URL-encode the query minimally (space -> +, : stays valid in query string).
   enc=$(printf '%s' "$q" | sed 's/ /+/g')
+  before=$(wc -l < "$raw" | tr -d ' ')
   gh_curl "https://api.github.com/search/repositories?q=${enc}&sort=stars&order=desc&per_page=50" \
     | python3 -c '
 import sys, json
@@ -76,8 +78,16 @@ for it in d.get("items", []):
     desc = (it.get("description") or "").replace("\t"," ").replace("\n"," ")[:100]
     print(f"{stars}\t{full}\t{topics}\t{desc}")
 ' >> "$raw"
+  after=$(wc -l < "$raw" | tr -d ' ')
+  got=$((after - before)); total_items=$((total_items + got))
+  echo "  query [$q] -> $got items" >&2   # surface per-query results (0 = failed/rate-limited)
   sleep 1   # be gentle with the Search API rate limit
 done
+
+if [ "$total_items" -eq 0 ]; then
+  echo "WARNING: all search queries returned 0 items — likely rate-limited or an API change." >&2
+  echo "         Results are NOT authoritative; set GITHUB_TOKEN and retry before trusting an empty candidate list." >&2
+fi
 
 # 3+4. Dedup, drop have-set, filter by MIN_STARS, rank, print top N.
 echo ""
@@ -85,10 +95,11 @@ printf "%-8s  %-45s  %s\n" "STARS" "REPO" "CROSS-AGENT? / DESCRIPTION"
 printf '%s\n' "----------------------------------------------------------------------------------------------"
 
 # Pass have-set + thresholds into awk; emit ranked, deduped, filtered rows.
-printf '%s\n' "$have" > /tmp/.have_set
-sort -t$'\t' -k1 -rn "$raw" | awk -F'\t' -v minstars="$MIN_STARS" -v topn="$TOP_N" '
+have_file="$(mktemp)"
+printf '%s\n' "$have" > "$have_file"
+sort -t$'\t' -k1 -rn "$raw" | awk -F'\t' -v minstars="$MIN_STARS" -v topn="$TOP_N" -v havefile="$have_file" '
 BEGIN {
-  while ((getline line < "/tmp/.have_set") > 0) { have[tolower(line)] = 1 }
+  while ((getline line < havefile) > 0) { have[tolower(line)] = 1 }
 }
 {
   stars=$1; repo=$2; topics=$3; desc=$4
@@ -117,7 +128,7 @@ BEGIN {
 }
 END { printf "\n%d relevant new candidate(s) above %s stars (showing up to %d).\n", (count?count:0), minstars, topn }
 '
-rm -f "$raw" /tmp/.have_set
+rm -f "$raw" "$have_file"
 
 cat >&2 <<'EOF'
 

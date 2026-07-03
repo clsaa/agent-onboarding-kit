@@ -4,15 +4,17 @@
 #
 # Verifies the manifest is internally consistent and that BOTH modes are
 # executable by a real agent:
-#   A. Structural consistency  — links resolve, every entry has all template
-#                                fields, no leaked template placeholders.
+#   A. Structural consistency  — links resolve both ways, every entry has all
+#                                template fields, INDEX rows agree with the
+#                                per-skill files (compatibility + stars), no
+#                                leaked placeholders.
 #   B. Self-iterate mode       — every Repo: line parses to owner/repo and the
-#                                GitHub repo is live (not 404 / not archived);
-#                                file star counts are sanity-checked vs the API.
-#   C. Install mode            — every entry has an Install section; normal
-#                                entries expose a runnable command; directory /
-#                                index entries are explicitly labeled so an
-#                                agent following AGENTS.md does not stall.
+#                                GitHub repo is confirmed live (positive signal);
+#                                documented stars are sanity-checked vs the API.
+#   C. Install mode            — every entry has a runnable command for EACH
+#                                agent it claims, and directory/index entries
+#                                are explicitly labeled.
+#   D. Tooling                 — scripts/discover.sh is syntactically valid.
 #
 # Usage:   bash tests/e2e.sh
 # Network: set GITHUB_TOKEN to avoid API rate limits. Section B degrades
@@ -20,6 +22,7 @@
 #          structural suite still runs fully offline.
 #
 # Exit code: 0 if no FAIL, 1 otherwise. WARNs never fail the build.
+# Compatible with bash 3.2 (macOS default) — no associative arrays.
 
 set -uo pipefail
 cd "$(dirname "$0")/.."
@@ -31,43 +34,81 @@ bad() { printf "  ${red}FAIL${rst} %s\n" "$*"; fail=$((fail+1)); }
 wrn() { printf "  ${ylw}WARN${rst} %s\n" "$*"; warn=$((warn+1)); }
 hdr() { printf "\n== %s ==\n" "$*"; }
 
-CORE="superpowers superclaude-framework minimax-skills anthropic-official-skills vercel-agent-skills planning-with-files context-engineering-skills composio-skills antfu-skills awesome-agent-skills"
-EXTRA="extra-addyosmani-agent-skills extra-skill-creator extra-awesome-mcp-servers extra-antigravity-awesome-skills extra-awesome-claude-skills"
-ALL="$CORE $EXTRA"
-# Entries that are catalogs, not installable bundles (no single install command).
-DIRECTORY="awesome-agent-skills extra-awesome-mcp-servers extra-antigravity-awesome-skills extra-awesome-claude-skills"
+# Derive the skill list from the filesystem so a newly added skills/*.md file
+# is automatically covered (no hand-maintained list to drift out of sync).
+ALL=""
+for f in skills/*.md; do
+  b=$(basename "$f" .md)
+  [ "$b" = "INDEX" ] && continue
+  ALL="$ALL $b"
+done
+ALL=$(printf '%s' "$ALL" | sed 's/^ //')
 
+# Directory/index entries are catalogs, not installable bundles (no single command).
+DIRECTORY="awesome-agent-skills extra-awesome-mcp-servers extra-antigravity-awesome-skills extra-awesome-claude-skills"
 is_directory() { case " $DIRECTORY " in *" $1 "*) return 0;; *) return 1;; esac; }
+
+# Normalize a star token to a bare number+unit, e.g. "~245k (as of 2026-07)" -> "245k".
+norm_star() { printf '%s' "$1" | grep -oE '[0-9]+(\.[0-9]+)?k?' | head -1; }
 
 # ---------------------------------------------------------------------------
 hdr "A. Structural consistency"
 
-# Every INDEX Details link resolves to a real file.
-missing_link=0
-for f in $(grep -oE '\(\./((extra-)?[a-z0-9-]+)\.md\)' skills/INDEX.md | sed 's/[()]//g; s#^\./##'); do
-  [ -f "skills/$f" ] || { bad "INDEX links a missing file: skills/$f"; missing_link=1; }
-done
-[ "$missing_link" -eq 0 ] && ok "all INDEX Details links resolve"
-
-# Every expected skill file exists and carries all template fields.
+# A1. Every skill file exists and carries all template fields.
 missing_field=0
 for s in $ALL; do
   fp="skills/$s.md"
-  if [ ! -f "$fp" ]; then bad "missing skill file: $fp"; missing_field=1; continue; fi
   for field in "Category:" "What it does:" "Repo:" "Compatibility:" "Install:" "Verify:" "Stars:"; do
     grep -q "$field" "$fp" || { bad "$s.md missing template field: $field"; missing_field=1; }
   done
 done
-[ "$missing_field" -eq 0 ] && ok "all 15 entries present with full template ($(echo $ALL | wc -w | tr -d ' ') files)"
+[ "$missing_field" -eq 0 ] && ok "all entries carry the full template ($(printf '%s' "$ALL" | wc -w | tr -d ' ') files)"
 
-# Every INDEX slug is backed by a file and vice-versa (count check).
-idx_links=$(grep -oE '\(\./((extra-)?[a-z0-9-]+)\.md\)' skills/INDEX.md | sort -u | wc -l | tr -d ' ')
-[ "$idx_links" -ge 15 ] && ok "INDEX links >= 15 entries ($idx_links)" || bad "INDEX links only $idx_links entries (<15)"
+# A2. Bidirectional link integrity: every INDEX table link resolves to a file,
+# and every skill file is linked from INDEX (no orphans).
+idx_slugs=$(grep '^|' skills/INDEX.md | grep -oE '\]\(\./((extra-)?[a-z0-9-]+)\.md\)' \
+  | sed -E 's#\]\(\./##; s#\.md\)##' | sort -u)
+fs_slugs=$(printf '%s\n' $ALL | sort -u)
+link_bad=0
+for slug in $idx_slugs; do
+  [ -f "skills/$slug.md" ] || { bad "INDEX links a missing file: skills/$slug.md"; link_bad=1; }
+done
+for slug in $fs_slugs; do
+  printf '%s\n' "$idx_slugs" | grep -qx "$slug" || { bad "orphan file not linked from INDEX: skills/$slug.md"; link_bad=1; }
+done
+[ "$link_bad" -eq 0 ] && ok "INDEX <-> files link set matches both ways ($(printf '%s' "$idx_slugs" | wc -w | tr -d ' ') slugs)"
 
-# No leaked template placeholders in the entry files.
-# NOTE: <owner/repo> is intentional instructional prose in directory entries
-# ("npx skills add <owner/repo>"), so it is NOT a leak sentinel — only tokens
-# that never legitimately appear in a finished entry are checked here.
+# A3. INDEX rows agree with the per-skill files on compatibility + stars
+# (CONTRIBUTING says they "must match exactly" — enforce it, don't just assert it).
+consistency_bad=0
+while IFS= read -r row; do
+  case "$row" in \|*) : ;; *) continue ;; esac
+  printf '%s' "$row" | grep -q '\](\./.*\.md)' || continue
+  slug=$(printf '%s' "$row" | grep -oE '\./((extra-)?[a-z0-9-]+)\.md' | head -1 | sed -E 's#\./##; s#\.md##')
+  fp="skills/$slug.md"
+  [ -f "$fp" ] || continue
+  # INDEX cells: | # | Skill | Type | CC | Codex | OpenCode | Stars |
+  i_cc=$(printf '%s' "$row" | awk -F'|' '{gsub(/[[:space:]]/,"",$5); print $5}')
+  i_cx=$(printf '%s' "$row" | awk -F'|' '{gsub(/[[:space:]]/,"",$6); print $6}')
+  i_oc=$(printf '%s' "$row" | awk -F'|' '{gsub(/[[:space:]]/,"",$7); print $7}')
+  i_st=$(norm_star "$(printf '%s' "$row" | awk -F'|' '{print $8}')")
+  # File Compatibility line: "Claude Code X | Codex Y | OpenCode Z"
+  cline=$(grep -m1 '\*\*Compatibility:\*\*' "$fp" | sed 's/.*Compatibility:\*\*//')
+  f_cc=$(printf '%s' "$cline" | awk -F'|' '{print $1}' | awk '{print $NF}')
+  f_cx=$(printf '%s' "$cline" | awk -F'|' '{print $2}' | awk '{print $NF}')
+  f_oc=$(printf '%s' "$cline" | awk -F'|' '{print $3}' | awk '{print $NF}')
+  f_st=$(norm_star "$(grep -m1 '\*\*Stars:\*\*' "$fp")")
+  if [ "$i_cc|$i_cx|$i_oc" != "$f_cc|$f_cx|$f_oc" ]; then
+    bad "$slug: compatibility mismatch — INDEX [$i_cc|$i_cx|$i_oc] vs file [$f_cc|$f_cx|$f_oc]"; consistency_bad=1
+  fi
+  if [ -n "$i_st" ] && [ -n "$f_st" ] && [ "$i_st" != "$f_st" ]; then
+    bad "$slug: star mismatch — INDEX '$i_st' vs file '$f_st'"; consistency_bad=1
+  fi
+done < skills/INDEX.md
+[ "$consistency_bad" -eq 0 ] && ok "INDEX rows agree with per-skill files (compatibility + stars)"
+
+# A4. No leaked template placeholders in the entry files.
+# (<owner/repo> is intentional instructional prose in directory entries.)
 if grep -rqn '<command>\|<symbol>\|<category>\|<Skill Name>\|TBD\|TODO\|FIXME' skills/; then
   bad "leaked template placeholder / TODO in skills/"; grep -rn '<command>\|<symbol>\|<category>\|<Skill Name>\|TBD\|TODO\|FIXME' skills/
 else
@@ -77,8 +118,6 @@ fi
 # ---------------------------------------------------------------------------
 hdr "B. Self-iterate mode (repo liveness + star sanity)"
 
-# curl wrapper that adds auth only when a token is set (avoids empty-array
-# expansion, which errors under `set -u` on macOS bash 3.2).
 gh_curl() {
   if [ -n "${GITHUB_TOKEN:-}" ]; then
     curl -s -H "Authorization: Bearer ${GITHUB_TOKEN}" "$@"
@@ -96,27 +135,29 @@ else
   parse_fail=0
   for s in $ALL; do
     fp="skills/$s.md"
-    # Parse owner/repo from the Repo: line (expects a clean github.com/<owner>/<repo> URL).
     repo=$(grep -m1 '\*\*Repo:\*\*' "$fp" | grep -oE 'github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+' | head -1 | sed 's#github.com/##')
     if [ -z "$repo" ]; then bad "$s.md: could not parse owner/repo from Repo: line"; parse_fail=1; continue; fi
 
     json=$(gh_curl "https://api.github.com/repos/$repo")
-    if echo "$json" | grep -q '"message": *"Not Found"'; then
-      bad "$s.md: repo $repo returns 404 (renamed/deleted?)"; continue
+    # Require a POSITIVE signal of success. Anything else (404, secondary rate
+    # limit, 5xx, empty/truncated body) must not be reported as "live".
+    if ! printf '%s' "$json" | grep -q '"full_name"'; then
+      if printf '%s' "$json" | grep -q '"message": *"Not Found"'; then
+        bad "$s.md: repo $repo returns 404 (renamed/deleted?)"
+      else
+        wrn "$s.md: could not confirm liveness for $repo (unexpected API response — rate limit?)"
+      fi
+      sleep 0.4; continue
     fi
-    if echo "$json" | grep -q '"archived": *true'; then
-      wrn "$s.md: repo $repo is archived"
-    fi
-    # Isolate the integer right after "stargazers_count" — robust to minified
-    # (single-line) JSON, where a bare `grep -oE '[0-9]+'` would scrape every
-    # number in the whole body.
+    printf '%s' "$json" | grep -q '"archived": *true' && wrn "$s.md: repo $repo is archived"
+
     live=$(printf '%s' "$json" | grep -oE '"stargazers_count"[[:space:]]*:[[:space:]]*[0-9]+' | head -1 | grep -oE '[0-9]+$')
-    # File star value like "~245k" / "~0.1k" -> approximate integer.
-    fstar=$(grep -m1 '\*\*Stars:\*\*' "$fp" | grep -oE '~?[0-9]+(\.[0-9]+)?k' | head -1 | tr -d '~k')
-    if printf '%s' "$live" | grep -qE '^[0-9]+$' && [ -n "$fstar" ]; then
-      # Convert file's k-value to an integer for a loose comparison.
+    stars_line=$(grep -m1 '\*\*Stars:\*\*' "$fp")
+    fstar=$(printf '%s' "$stars_line" | grep -oE '~?[0-9]+(\.[0-9]+)?k' | head -1 | tr -d '~k')
+    if [ -n "$stars_line" ] && [ -z "$fstar" ]; then
+      wrn "$s.md: Stars present but unparseable ('$stars_line') — expected ~Nk"
+    elif printf '%s' "$live" | grep -qE '^[0-9]+$' && [ -n "$fstar" ]; then
       fint=$(awk "BEGIN{printf \"%d\", $fstar*1000}")
-      # Warn if the documented figure is off by more than 40% from live.
       hi=$(awk "BEGIN{printf \"%d\", $fint*1.4}"); lo=$(awk "BEGIN{printf \"%d\", $fint*0.6}")
       if [ "$live" -gt "$hi" ] || [ "$live" -lt "$lo" ]; then
         wrn "$s.md: stars drifted — doc ~${fstar}k vs live $live ($repo). Run SELF-UPDATE.md."
@@ -126,35 +167,70 @@ else
     else
       ok "$s.md: $repo live"
     fi
+    sleep 0.4
   done
-  [ "$parse_fail" -eq 0 ] && ok "owner/repo parsed for all 15 Repo: lines"
+  [ "$parse_fail" -eq 0 ] && ok "owner/repo parsed for every Repo: line"
 fi
 
 # ---------------------------------------------------------------------------
 hdr "C. Install mode (agent-executability)"
 
-# AGENTS.md must acknowledge directory-type entries so the flow does not stall.
-if grep -qi 'director' AGENTS.md; then ok "AGENTS.md handles directory/index entries"; else bad "AGENTS.md does not mention directory/index entries — agents will stall on catalogs"; fi
+# C1. AGENTS.md directory guidance must name a concrete directory entry (not
+# just contain the word "directory" somewhere).
+if grep -qiE 'Awesome Agent Skills|Awesome MCP Servers|directory/index entr' AGENTS.md; then
+  ok "AGENTS.md directory guidance references a concrete directory entry"
+else
+  bad "AGENTS.md directory guidance is vague — name a concrete directory entry (e.g. Awesome Agent Skills)"
+fi
+
+# C2. Per-entry install commands.
+# Counts agent-label lines inside the Install block that have NEITHER an inline
+# `command`, NOR a following ``` fenced block, NOR an explicit exemption
+# (n/a / only / clone / copy / browse / manual / index / see).
+count_bad_install_lines() {
+  awk '
+    /\*\*Install:\*\*/ {inb=1}
+    /\*\*Verify:\*\*/  {if (pending && !sat) bad++; inb=0}
+    inb {
+      if ($0 ~ /^[[:space:]]*-[[:space:]]+[A-Za-z].*:/ && $0 !~ /\*\*Install/) {
+        if (pending && !sat) bad++
+        pending=1; sat=0
+        if ($0 ~ /`[^`]+`/) sat=1
+        low=tolower($0)
+        if (low ~ /n\/a|only|clone|copy|browse|manual|index|see /) sat=1
+      } else if (pending && !sat && $0 ~ /```/) sat=1
+    }
+    END { if (pending && !sat) bad++; print bad+0 }
+  ' "$1"
+}
 
 for s in $ALL; do
   fp="skills/$s.md"
-  # Grab the Install block (from the Install line to the next top-level "- **" field).
   install=$(awk '/\*\*Install:\*\*/{f=1} f{print} /\*\*Verify:\*\*/{f=0}' "$fp")
   if is_directory "$s"; then
-    if echo "$install" | grep -qi 'director\|index\|no single command'; then
+    if printf '%s' "$install" | grep -qi 'director\|index\|no single command'; then
       ok "$s.md: directory entry is labeled (no single command expected)"
     else
-      bad "$s.md: directory entry NOT labeled — agent may try to run a nonexistent command"
+      bad "$s.md: directory entry NOT labeled — agent may run a nonexistent command"
     fi
   else
-    # Normal entry must expose at least one runnable-looking command in backticks.
-    if echo "$install" | grep -qE '`[^`]*(skills add|plugin install|plugin marketplace|pipx install|git clone|pnpx|superclaude)[^`]*`'; then
-      ok "$s.md: has a runnable install command"
+    n_bad=$(count_bad_install_lines "$fp")
+    if [ "$n_bad" -eq 0 ]; then
+      ok "$s.md: every agent's install line is runnable or explicitly exempt"
     else
-      bad "$s.md: no runnable install command found in Install block"
+      bad "$s.md: $n_bad agent install line(s) have no runnable command/fence/exemption"
     fi
   fi
 done
+
+# ---------------------------------------------------------------------------
+hdr "D. Tooling"
+
+if bash -n scripts/discover.sh 2>/dev/null; then
+  ok "scripts/discover.sh is syntactically valid"
+else
+  bad "scripts/discover.sh has a syntax error (bash -n failed)"
+fi
 
 # ---------------------------------------------------------------------------
 hdr "Summary"

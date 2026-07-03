@@ -21,20 +21,26 @@ GITHUB_TOKEN=ghp_xxx bash tests/e2e.sh   # recommended · 推荐
 
 ## What it checks · 检查内容
 
-**A. Structural consistency · 结构一致性**
-- Every `skills/INDEX.md` Details link resolves to a real file. · 矩阵里每个链接都指向真实文件。
-- All 15 entries (10 core + 5 extra) exist and carry every template field. · 15 个条目模板字段齐全。
-- No leaked template placeholders (`<command>`, `<symbol>`, `<category>`, `TODO`…). · 无残留模板占位符。
+The skill list is derived from the filesystem (`skills/*.md`), so a newly added entry is covered automatically — no hand-maintained list.
 
-**B. Self-iterate mode · 自迭代模式** (mirrors `SELF-UPDATE.md` §A/§D)
+**A. Structural consistency · 结构一致性**
+- Every entry carries every template field. · 每个条目模板字段齐全。
+- INDEX ↔ files link set matches **both ways** (no dangling links, no orphan files). · 链接集双向一致（无断链、无孤立文件）。
+- **INDEX rows agree with the per-skill files** on compatibility symbols and stars (enforces CONTRIBUTING's "must match exactly"). · 矩阵行与条目文件在兼容符号与星数上完全一致。
+- No leaked template placeholders. · 无残留模板占位符。
+
+**B. Self-iterate mode · 自迭代模式** (mirrors `SELF-UPDATE.md` §A)
 - Every `Repo:` line parses to an `owner/repo`. · 每个 `Repo:` 行都能解析出 `owner/repo`。
-- Each repo is live via the GitHub API (not 404, not archived/renamed). · 每个仓库经 GitHub API 确认存活。
-- Documented star counts are sanity-checked against live values (drift > 40% → `WARN`, run `SELF-UPDATE.md`). · 文档星数与实时值对比，偏差过大则 `WARN`。
+- Each repo is confirmed live via a **positive** GitHub API signal (`full_name`); a rate-limited/error response is a `WARN`, never a silent pass. · 用正向信号确认仓库存活；异常响应只 `WARN`。
+- Documented stars sanity-checked vs live (drift > 40% → `WARN`); an unparseable `Stars:` value → `WARN`. · 星数漂移或无法解析则 `WARN`。
 
 **C. Install mode · 安装模式** (mirrors `AGENTS.md`)
-- `AGENTS.md` explicitly handles directory/index entries. · `AGENTS.md` 明确处理目录型条目。
-- Every normal entry exposes a runnable install command. · 每个普通条目都有可执行安装命令。
-- Every directory/index entry is labeled as a catalog (no single command expected). · 每个目录型条目都被标注为索引。
+- `AGENTS.md` directory guidance names a concrete directory entry. · 目录指引点名具体目录条目。
+- **Each agent's** install line (not just one per entry) is runnable, a fenced block, or an explicit exemption. · 每个 Agent 的安装行都可执行或明确豁免。
+- Every directory/index entry is labeled as a catalog. · 目录型条目被标注为索引。
+
+**D. Tooling · 工具**
+- `scripts/discover.sh` is syntactically valid (`bash -n`). · 发现脚本语法有效。
 
 ## When to run · 何时运行
 

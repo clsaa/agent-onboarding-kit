@@ -5,13 +5,23 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    # Weekly, Monday 06:00 UTC — surfaces star drift / dead repos even with no commits.
+    - cron: '0 6 * * 1'
   workflow_dispatch:
 
 jobs:
   e2e:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # macOS ships bash 3.2, which the suite is hand-hardened for; Ubuntu is bash 5.
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - name: bash version
+        run: bash --version | head -1
       - name: Run end-to-end suite
         env:
           # CI-provided token raises the GitHub API rate limit for section B.
