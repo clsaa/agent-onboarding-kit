@@ -1,0 +1,11 @@
+# Awesome MCP Servers
+- **Category:** Directory of MCP servers
+- **What it does:** A curated directory/index of Model Context Protocol (MCP) servers for connecting agents to external tools and services.
+- **Repo:** https://github.com/punkpeye/awesome-mcp-servers
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Claude Code: browse index, add servers to your agent's MCP config
+  - Codex / OpenCode / others: browse index, add servers to your agent's MCP config
+- **Verify:** Ask the agent to list configured MCP servers; entries chosen from the index appear.
+- **When to use / skip:** Bonus pick — an AI expert/system architect wiring agents to external tools via MCP will want this as the reference catalog; use when picking which MCP servers to wire up, skip if your workflow doesn't need external tool integrations beyond Composio Skills (#8).
+- **Stars:** ~90k (as of 2026-07, re-verified via GitHub API)

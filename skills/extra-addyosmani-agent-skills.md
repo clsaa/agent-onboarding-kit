@@ -1,0 +1,11 @@
+# addyosmani Agent Skills
+- **Category:** Skills collection (incl. context-engineering)
+- **What it does:** A large, actively maintained collection of agent skills spanning general engineering, front-end, and context-engineering workflows.
+- **Repo:** https://github.com/addyosmani/agent-skills
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Claude Code: `npx skills add addyosmani/agent-skills`
+  - Codex / OpenCode / others: `npx skills add addyosmani/agent-skills`
+- **Verify:** Ask the agent to list skills; addyosmani skills appear.
+- **When to use / skip:** Bonus pick — the largest general skills collection in this kit, giving full-stack breadth beyond the core 10; use to broaden coverage once the core picks are installed, but skip if you want to avoid overlap since some skills here duplicate ground already covered by Context Engineering (#7) and Vercel Agent Skills (#5).
+- **Stars:** ~68.7k (as of 2026-07)
