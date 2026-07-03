@@ -5,6 +5,7 @@
 > A manifest any AI coding agent can read to install a curated set of recommended skills.
 
 <p align="center">
+  <a href="https://github.com/clsaa/agent-onboarding-kit/actions/workflows/e2e.yml"><img alt="E2E" src="https://github.com/clsaa/agent-onboarding-kit/actions/workflows/e2e.yml/badge.svg"></a>
   <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
   <a href="https://github.com/clsaa/agent-onboarding-kit/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/clsaa/agent-onboarding-kit?style=flat&logo=github"></a>
   <img alt="Skills" src="https://img.shields.io/badge/skills-10%20core%20%2B%205%20extra-blue">
