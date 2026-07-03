@@ -38,13 +38,18 @@
 
 | Name | Repo | Category | Claude Code | Codex | OpenCode | Stars (~, 2026-07) | Install |
 |------|------|----------|:-----------:|:-----:|:--------:|--------------------|---------|
-| addyosmani Agent Skills | `addyosmani/agent-skills` | Skills collection (incl. context-engineering) | ✅ | ✅ | ✅ | 68.7k | `npx skills add addyosmani/agent-skills` |
-| skill-creator | `anthropics/skills` (skill-creator) | Meta-skill: author/edit/eval skills | ✅ | ⚠️ | ⚠️ | 158k | `/plugin install example-skills@anthropic-agent-skills` (then use skill-creator) |
-| VoltAgent Awesome Claude Code | `hesreallyhim/awesome-claude-code` | Curated Claude Code commands/workflows index | ✅ | ❌ | ❌ | 25k | browse index |
-| Antigravity Awesome Skills | `sickn33/antigravity-awesome-skills` | 1,800+ installable skills + installer CLI | ✅ | ✅ | ✅ | 42.3k | browse index / installer CLI |
-| Composio Awesome Claude Skills | `ComposioHQ/awesome-claude-skills` | Curated Claude skills index | ✅ | ⚠️ | ⚠️ | (index) | browse index |
+Tailored to the user's profile (AI expert / system architect / full-stack developer):
 
-> During Task 5, re-verify the two figures marked uncertain (`hesreallyhim/awesome-claude-code` stars, `ComposioHQ/awesome-claude-skills` existence/stars) with a quick check; if a repo can't be confirmed, swap it for `punkpeye/awesome-mcp-servers` (MCP servers directory) and note the swap.
+| Name | Repo | Category | Fits | Claude Code | Codex | OpenCode | Stars (~, 2026-07) | Install |
+|------|------|----------|------|:-----------:|:-----:|:--------:|--------------------|---------|
+| addyosmani Agent Skills | `addyosmani/agent-skills` | Skills collection (incl. context-engineering) | Full-stack breadth | ✅ | ✅ | ✅ | 68.7k | `npx skills add addyosmani/agent-skills` |
+| skill-creator | `anthropics/skills` (skill-creator) | Meta-skill: author/edit/eval skills | AI expert — build your own skills | ✅ | ⚠️ | ⚠️ | 158k | `/plugin install example-skills@anthropic-agent-skills` (then use skill-creator) |
+| Awesome MCP Servers | `punkpeye/awesome-mcp-servers` | Directory of MCP servers | AI/architect — wire external tools via MCP | ✅ | ✅ | ✅ | 60k+ | browse index, add servers to your agent's MCP config |
+| Antigravity Awesome Skills | `sickn33/antigravity-awesome-skills` | 1,800+ installable skills + installer CLI | Breadth / full-stack | ✅ | ✅ | ✅ | 42.3k | browse index / installer CLI |
+| Composio Awesome Claude Skills | `ComposioHQ/awesome-claude-skills` | Curated Claude skills index | Architect — integrations catalog | ✅ | ⚠️ | ⚠️ | (index) | browse index |
+
+> **Role mapping (note in INDEX "Extra picks" intro):** the core 10 already cover the user's three hats — AI expert: Context Engineering (#7), Composio/MCP (#8); system architect: Superpowers (#1), Planning with Files (#6); full-stack: Vercel (#5), MiniMax (#3), Antfu (#9). The extra 5 above extend those.
+> During Task 5, re-verify the uncertain figures (`punkpeye/awesome-mcp-servers` stars, `ComposioHQ/awesome-claude-skills` existence/stars) with a quick check; if a repo can't be confirmed, note it in that file rather than guessing.
 
 ---
 
@@ -162,7 +167,7 @@ git commit -m "docs: add AGENTS.md agent entry point with 5-step flow"
 
 **Slugs (Task 4 must create exactly these files):** `superpowers.md`, `superclaude-framework.md`, `minimax-skills.md`, `anthropic-official-skills.md`, `vercel-agent-skills.md`, `planning-with-files.md`, `context-engineering-skills.md`, `composio-skills.md`, `antfu-skills.md`, `awesome-agent-skills.md`.
 
-**Extra-pick slugs (Task 5):** `extra-addyosmani-agent-skills.md`, `extra-skill-creator.md`, `extra-awesome-claude-code.md`, `extra-antigravity-awesome-skills.md`, `extra-awesome-claude-skills.md`.
+**Extra-pick slugs (Task 5):** `extra-addyosmani-agent-skills.md`, `extra-skill-creator.md`, `extra-awesome-mcp-servers.md`, `extra-antigravity-awesome-skills.md`, `extra-awesome-claude-skills.md`.
 
 - [ ] **Step 1: Write `skills/INDEX.md`** with:
   1. Title + one-line explanation (English) that this is the machine-readable manifest.
@@ -252,7 +257,7 @@ git commit -m "docs: add 10 core skill entry files"
 ### Task 5: The 5 extra picks
 
 **Files:**
-- Create: `skills/extra-addyosmani-agent-skills.md`, `skills/extra-skill-creator.md`, `skills/extra-awesome-claude-code.md`, `skills/extra-antigravity-awesome-skills.md`, `skills/extra-awesome-claude-skills.md`
+- Create: `skills/extra-addyosmani-agent-skills.md`, `skills/extra-skill-creator.md`, `skills/extra-awesome-mcp-servers.md`, `skills/extra-antigravity-awesome-skills.md`, `skills/extra-awesome-claude-skills.md`
 
 **Interfaces:**
 - Consumes: extra-picks data table + slug names from Task 3.
@@ -260,8 +265,8 @@ git commit -m "docs: add 10 core skill entry files"
 
 - [ ] **Step 1: Quick re-verify the two uncertain repos**
 
-Run: `for r in hesreallyhim/awesome-claude-code ComposioHQ/awesome-claude-skills; do echo "== $r =="; curl -s "https://api.github.com/repos/$r" | grep -E '"full_name"|"stargazers_count"|"message"'; done`
-Expected: both return a `full_name` (exist). If either returns `"message": "Not Found"`, swap it for `punkpeye/awesome-mcp-servers` and note the swap in that file's "What it does" line.
+Run: `for r in punkpeye/awesome-mcp-servers ComposioHQ/awesome-claude-skills; do echo "== $r =="; curl -s "https://api.github.com/repos/$r" | grep -E '"full_name"|"stargazers_count"|"message"'; done`
+Expected: both return a `full_name` (exist). If either returns `"message": "Not Found"`, note it in that file's "What it does" line rather than guessing a star count.
 
 - [ ] **Step 2: Write all 5 files** using the extra-picks data table and the Task 4 template. Each file's "When to use / skip" must state why it's a bonus pick (e.g., "addyosmani — the largest general skills collection; overlaps some core picks").
 
@@ -269,7 +274,7 @@ Expected: both return a `full_name` (exist). If either returns `"message": "Not 
 
 Run:
 ```bash
-for slug in extra-addyosmani-agent-skills extra-skill-creator extra-awesome-claude-code extra-antigravity-awesome-skills extra-awesome-claude-skills; do
+for slug in extra-addyosmani-agent-skills extra-skill-creator extra-awesome-mcp-servers extra-antigravity-awesome-skills extra-awesome-claude-skills; do
   test -f "skills/$slug.md" || echo "MISSING: $slug"
   grep -q "Compatibility:" "skills/$slug.md" && grep -q "Install:" "skills/$slug.md" || echo "MISSING FIELDS: $slug"
   grep -q "$slug.md" skills/INDEX.md || echo "NOT LINKED IN INDEX: $slug"
