@@ -23,24 +23,38 @@ For every skill listed in [`skills/INDEX.md`](./skills/INDEX.md) and its corresp
 
 ## B. Discover new tools
 
-Search for new high-value skills, subagents, or rules that fit two constraints at once:
+Discovery is a concrete, repeatable step — not freehand browsing. Run the discovery helper first, then curate its output.
 
-- **Repo scope:** cross-agent tools that work across Claude Code, Codex, and OpenCode (not single-agent-only, unless exceptionally notable).
-- **Maintainer profile:** AI / system-architecture / full-stack — favor tools that extend those three hats, the same way the existing "Extra picks" do.
+### B.1 Generate a candidate list
 
-Check these sources:
+```bash
+bash scripts/discover.sh          # optional args: MIN_STARS (default 500) TOP_N (default 25)
+# set GITHUB_TOKEN to avoid Search API rate limits
+```
 
-- `VoltAgent/awesome-agent-skills`
-- `addyosmani/agent-skills`
-- skills.sh
-- GitHub trending / search for "agent skills"
+`scripts/discover.sh` does the mechanical part deterministically:
 
-For each genuinely new, verified candidate:
+1. Builds the "already have" set from every `skills/*.md` `Repo:` line.
+2. Queries the GitHub Search API across several angles (`topic:agent-skills`, `topic:claude-code`, `SKILL.md` in readme, etc.).
+3. Diffs candidates against the have-set (case-insensitive) so nothing already in the manifest reappears.
+4. Applies a relevance gate (name/topics/description must be about skills / coding agents) and prints the survivors ranked by stars, with a `[cross-agent]` / `[1-agent?]` hint.
 
-1. Confirm it isn't already covered by an existing `skills/*.md` entry.
-2. Verify its star count via the GitHub API (never estimate) and its compatibility by actually checking docs/README (never assume).
-3. Create `skills/<slug>.md` (or `skills/extra-<slug>.md` for a supplementary pick) from the entry template in `CONTRIBUTING.md`, filled in completely.
-4. Add exactly one row to the correct table in `skills/INDEX.md`, following `CONTRIBUTING.md` step 3.
+It deliberately does **not** edit anything — discovery is separate from curation.
+
+### B.2 Curate the candidates
+
+Keep only candidates that fit two constraints at once:
+
+- **Repo scope:** cross-agent tools that work across Claude Code, Codex, and OpenCode (prefer `[cross-agent]` rows; take single-agent tools only if exceptionally notable).
+- **Maintainer profile:** AI / system-architecture / full-stack — favor tools that extend those three hats, like the existing "Extra picks".
+
+For each candidate you keep:
+
+1. Verify its star count via the GitHub API (never estimate) and its compatibility by actually reading its docs/README (never assume the `[cross-agent]` hint — it's only a heuristic from the description).
+2. Create `skills/<slug>.md` (or `skills/extra-<slug>.md` for a supplementary pick) from the entry template in `CONTRIBUTING.md`, filled in completely.
+3. Add exactly one row to the correct table in `skills/INDEX.md`, following `CONTRIBUTING.md` step 3.
+
+The helper only covers the GitHub Search API. Also skim these curated catalogs, which surface things search ranks poorly — several are already directory entries in this manifest: `VoltAgent/awesome-agent-skills`, `addyosmani/agent-skills`, `sickn33/antigravity-awesome-skills`, and skills.sh.
 
 ## C. Guardrails
 
