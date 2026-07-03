@@ -1,0 +1,11 @@
+# MiniMax Skills
+- **Category:** Workflow cards
+- **What it does:** A set of workflow cards from MiniMax AI that guide an agent through common development and content tasks step by step.
+- **Repo:** https://github.com/MiniMax-AI/skills
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Claude Code: `claude plugin marketplace add https://github.com/MiniMax-AI/skills && claude plugin install minimax-skills`
+  - Codex / OpenCode / others: `git clone https://github.com/MiniMax-AI/skills.git ~/.codex/minimax-skills` (Codex) / `git clone https://github.com/MiniMax-AI/skills.git ~/.minimax-skills` (OpenCode)
+- **Verify:** Ask the agent to list skills; MiniMax workflow cards appear.
+- **When to use / skip:** Use when you want ready-made workflow cards for common tasks; skip if you already have an equivalent skill set installed.
+- **Stars:** ~12.9k (as of 2026-07)

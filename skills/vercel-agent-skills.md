@@ -1,0 +1,11 @@
+# Vercel Agent Skills
+- **Category:** React/Web design + review rules
+- **What it does:** Skills from Vercel Labs covering React/Web UI design conventions and code review rules for front-end projects.
+- **Repo:** https://github.com/vercel-labs/agent-skills
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Claude Code: `npx skills add vercel-labs/agent-skills`
+  - Codex / OpenCode / others: `npx skills add vercel-labs/agent-skills`
+- **Verify:** Ask the agent to list skills; Vercel design/review skills appear.
+- **When to use / skip:** Use for React/Web front-end projects needing design and review conventions; skip for non-web projects.
+- **Stars:** ~28.6k (as of 2026-07)

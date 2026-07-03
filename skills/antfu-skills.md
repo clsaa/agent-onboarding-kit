@@ -1,0 +1,11 @@
+# Antfu Skills
+- **Category:** Expert Vue/Vite/Nuxt conventions
+- **What it does:** Anthony Fu's expert-level skills encoding conventions and best practices for Vue, Vite, and Nuxt projects.
+- **Repo:** https://github.com/antfu/skills
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Claude Code: `pnpx skills add antfu/skills --skill='*'`
+  - Codex / OpenCode / others: `pnpx skills add antfu/skills --skill='*'`
+- **Verify:** Ask the agent to list skills; Vue/Vite/Nuxt skills appear.
+- **When to use / skip:** Use for Vue/Vite/Nuxt projects wanting expert conventions; skip for non-Vue stacks.
+- **Stars:** ~5.5k (as of 2026-07)

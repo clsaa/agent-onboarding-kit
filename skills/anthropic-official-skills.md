@@ -1,0 +1,11 @@
+# Anthropic Official Skills
+- **Category:** Official reference + skill-creator
+- **What it does:** Anthropic's official reference skills, including document-handling skills and the skill-creator meta-skill for authoring new skills.
+- **Repo:** https://github.com/anthropics/skills
+- **Compatibility:** Claude Code ✅ | Codex ⚠️ | OpenCode ⚠️
+- **Install:**
+  - Claude Code: `/plugin marketplace add anthropics/skills` then `/plugin install document-skills@anthropic-agent-skills`
+  - Codex / OpenCode / others: SKILL.md files consumable manually
+- **Verify:** Ask the agent to list skills; document-skills appear.
+- **When to use / skip:** Use for document handling and as a reference for authoring your own skills; on Codex/OpenCode note SKILL.md files are consumable manually but tooling is Claude-first, so expect manual setup.
+- **Stars:** ~158k (as of 2026-07)

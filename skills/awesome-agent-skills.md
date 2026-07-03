@@ -1,0 +1,11 @@
+# Awesome Agent Skills
+- **Category:** Directory / index
+- **What it does:** A curated index/directory of agent skills across the ecosystem, pointing to individual skill repos rather than bundling one skill set.
+- **Repo:** https://github.com/VoltAgent/awesome-agent-skills
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Claude Code: browse and install individual skills via `npx skills add <repo>`
+  - Codex / OpenCode / others: browse and install individual skills via `npx skills add <repo>`
+- **Verify:** Ask the agent to list skills; entries chosen from the index appear.
+- **When to use / skip:** Use to discover skills beyond this kit's core picks; skip if you just want a ready-made bundle (the space is fragmented and this repo—`VoltAgent/awesome-agent-skills`—is the canonical index chosen here).
+- **Stars:** ~27.2k (as of 2026-07)

@@ -1,0 +1,11 @@
+# Planning with Files
+- **Category:** File-based external memory
+- **What it does:** A skill that has the agent maintain plans and progress in plain files on disk, giving it durable external memory across long or multi-session tasks.
+- **Repo:** https://github.com/OthmanAdi/planning-with-files
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Claude Code: `npx skills add OthmanAdi/planning-with-files`
+  - Codex / OpenCode / others: `npx skills add OthmanAdi/planning-with-files`
+- **Verify:** Ask the agent to list skills; planning-with-files appears.
+- **When to use / skip:** Use for long-running or multi-session tasks needing durable external memory; skip for short single-turn tasks.
+- **Stars:** ~24.4k (as of 2026-07)

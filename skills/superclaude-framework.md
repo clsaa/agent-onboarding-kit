@@ -1,0 +1,11 @@
+# SuperClaude Framework
+- **Category:** Slash-command Framework
+- **What it does:** A framework of curated slash commands and personas that extend Claude Code with structured workflows for planning, coding, and review.
+- **Repo:** https://github.com/SuperClaude-Org/SuperClaude_Framework
+- **Compatibility:** Claude Code ✅ | Codex ❌ | OpenCode ❌
+- **Install:**
+  - Claude Code: `pipx install superclaude && superclaude install`
+  - Codex / OpenCode / others: n/a — Claude Code only
+- **Verify:** `/sc:` slash commands are available.
+- **When to use / skip:** Use when working in Claude Code and you want ready-made `/sc:` workflows; skip on Codex or OpenCode since it isn't supported there.
+- **Stars:** ~23.4k (as of 2026-07)
