@@ -11,7 +11,7 @@
 [`AGENTS.md`](../AGENTS.md) 是这个仓库的**入口点**,专门写给 Agent(而不是人类)看。任何 Agent 打开这个仓库,第一件事就应该是读这个文件。它做三件事:
 
 1. 让 Agent 先完成 **Step 0:自我识别**——判断自己是 Claude Code、Codex、OpenCode 还是其他 Agent,因为这决定了后面用哪一列兼容矩阵、跑哪一条安装命令。
-2. 给出下面这套固定的 **5 步流程**(与本节末尾"5 步流程"完全一致,一字不差)。
+2. 给出一套固定的 5 步安装流程(具体步骤见 `AGENTS.md` 正文,下文不重复)。
 3. 声明几条护栏规则:不要运行清单之外的脚本;不要动用户无关的配置;如果用户只想要一部分,先问用户;把 `⚠️` 视为可选项(opt-in)。
 
 ### 兼容矩阵怎么工作
@@ -24,13 +24,9 @@
 
 Agent 只需要找到自己对应的那一列,筛出 `✅`(以及愿意尝试的 `⚠️`)的行,再点开每一行 `Details` 链接指向的 `skills/<slug>.md`,就能拿到针对自己的具体安装命令。这样一份表格就能同时服务三种不同的 Agent,而不需要为每个 Agent 单独写一份清单。
 
-### 5 步流程(与 `AGENTS.md` 完全一致)
+### 完整的安装步骤在哪
 
-- **Step 1** — 读 [`skills/INDEX.md`](../skills/INDEX.md) 及其兼容矩阵。
-- **Step 2** — 筛选出自己 Agent 那一列是 `✅`(或 `⚠️`,并附带注意事项)的行。
-- **Step 3** — 对每个选中的 skill,打开它的 `skills/<slug>.md`,执行针对自己 Agent 的 Install 命令。
-- **Step 4** — 执行该 skill 的 Verify 步骤;如果失败,报告失败并继续处理下一个。
-- **Step 5** — 向用户报告:已安装的、跳过的(附原因)、以及任何失败项。
+安装流程定义在 [`AGENTS.md`](../AGENTS.md) 里,那是权威版本——完整的 5 个步骤请看那份文件,这里不重复一份可能跑偏的副本。
 
 ### 第二种模式:自迭代
 
@@ -49,7 +45,7 @@ Agent 只需要找到自己对应的那一列,筛出 `✅`(以及愿意尝试的
 [`AGENTS.md`](../AGENTS.md) is this repo's **entry point**, written for an agent, not a human. Any agent opening this repo should read it first. It does three things:
 
 1. Has the agent complete **Step 0: Identify yourself** — determine whether it's Claude Code, Codex, OpenCode, or another agent, since that decides which compatibility-matrix column and which install command apply.
-2. Lays out the fixed **5-step procedure** below (identical, verbatim, to the "5-step flow" section at the end of this doc).
+2. Lays out a fixed 5-step install procedure (the steps themselves live in `AGENTS.md`'s own body; not repeated below).
 3. States a few guardrails: never run scripts not listed here; never touch the user's unrelated config; ask the user before installing if they only wanted a subset; treat `⚠️` items as opt-in.
 
 ### How the compatibility matrix works
@@ -62,13 +58,9 @@ The table in [`skills/INDEX.md`](../skills/INDEX.md) is the repo's "database." E
 
 An agent only needs to find its own column, filter to the `✅` rows (plus any `⚠️` rows it's willing to try), then follow each row's `Details` link to `skills/<slug>.md` to get the exact install command for itself. One table serves three different agents without needing a separate manifest per agent.
 
-### The 5-step flow (identical to `AGENTS.md`)
+### Where the full install steps live
 
-- **Step 1** — Read [`skills/INDEX.md`](../skills/INDEX.md) and its compatibility matrix.
-- **Step 2** — Filter to rows where your agent column is `✅` (or `⚠️`, with a caution note).
-- **Step 3** — For each selected skill, open its `skills/<slug>.md` and run the Install command for your agent.
-- **Step 4** — Run the skill's Verify step; if it fails, report the failure and continue.
-- **Step 5** — Report to the user: installed, skipped (with reason), and any failures.
+The install flow is defined in [`AGENTS.md`](../AGENTS.md); see there for the authoritative 5 steps — it isn't duplicated here so there's only one copy to keep correct.
 
 ### The second mode: self-iteration
 

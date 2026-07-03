@@ -1,0 +1,50 @@
+name: Propose a skill
+description: Suggest a skill/repo to add to the manifest
+title: "[propose]: "
+labels:
+  - propose-skill
+body:
+  - type: input
+    id: repo-url
+    attributes:
+      label: Repo URL
+      description: Link to the skill's GitHub repo
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category / type
+      description: What kind of entry is this?
+      options:
+        - Framework
+        - Bundle
+        - Collection
+        - Directory
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: agents
+    attributes:
+      label: Which agents does it support?
+      options:
+        - label: Claude Code
+        - label: Codex
+        - label: OpenCode
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it fits the manifest
+      description: What makes this worth including — what gap does it fill, why is it well-maintained/trustworthy?
+    validations:
+      required: true
+
+  - type: input
+    id: stars
+    attributes:
+      label: Approx. stars
+      placeholder: "~1,200 (as of 2026-07)"

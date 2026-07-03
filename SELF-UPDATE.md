@@ -8,6 +8,8 @@ This file is the **update** mode; it is the counterpart to [`AGENTS.md`](./AGENT
 
 ## A. Refresh existing entries
 
+First check `curl -s https://api.github.com/rate_limit`. If you are rate-limited, STOP and ask the user to set `GITHUB_TOKEN` — never guess or estimate a star count (that violates §C).
+
 For every skill listed in [`skills/INDEX.md`](./skills/INDEX.md) and its corresponding `skills/*.md` file:
 
 1. Extract the `owner/repo` from the file's `Repo:` line and call the GitHub API:
@@ -18,7 +20,7 @@ For every skill listed in [`skills/INDEX.md`](./skills/INDEX.md) and its corresp
 3. If the response is `Not Found` (404), the repo has `"archived": true`, or the repo has moved/renamed (the API returns a different `full_name` than expected, or a redirect), **flag it — do not silently delete it**:
    - Add a `> ⚠️ status: <what you found, and the date>` note directly under the title in the `skills/<slug>.md` file.
    - Add the same `⚠️` marker to that skill's row in the `skills/INDEX.md` compatibility matrix.
-4. Re-read the repo's README or homepage (whichever the entry links to) to confirm the `Compatibility:` claims (Claude Code / Codex / OpenCode) still hold. If a symbol changed, update it in both the `skills/<slug>.md` file and the matching `skills/INDEX.md` row — they must stay identical, per `CONTRIBUTING.md`.
+4. Re-read the repo's README or homepage (whichever the entry links to) to confirm the `Compatibility:` claims (Claude Code / Codex / OpenCode) still hold. If a symbol changed, update it in both the `skills/<slug>.md` file and the matching `skills/INDEX.md` row — they must stay identical, per `CONTRIBUTING.md`. A compatibility claim taken only from an upstream README/prose is `⚠️` at most. Reserve `✅` for compatibility you (or the manifest) actually confirmed by a successful install/dry-run.
 5. Update every `as of YYYY-MM` stamp you touched — in the entry file, the `skills/INDEX.md` footer, and `README.md` — to the current month.
 
 ## B. Discover new tools
@@ -50,7 +52,7 @@ Keep only candidates that fit two constraints at once:
 
 For each candidate you keep:
 
-1. Verify its star count via the GitHub API (never estimate) and its compatibility by actually reading its docs/README (never assume the `[cross-agent]` hint — it's only a heuristic from the description).
+1. Verify its star count via the GitHub API (never estimate) and its compatibility by actually reading its docs/README (never assume the `[cross-agent]` hint — it's only a heuristic from the description). A compatibility claim taken only from an upstream README/prose is `⚠️` at most. Reserve `✅` for compatibility you (or the manifest) actually confirmed by a successful install/dry-run.
 2. Create `skills/<slug>.md` (or `skills/extra-<slug>.md` for a supplementary pick) from the entry template in `CONTRIBUTING.md`, filled in completely.
 3. Add exactly one row to the correct table in `skills/INDEX.md`, following `CONTRIBUTING.md` step 3.
 
@@ -91,6 +93,10 @@ bash tests/e2e.sh          # set GITHUB_TOKEN to avoid API rate limits
 ```
 
 Expected: `E2E OK` (exit 0). If it reports `FAIL`, fix before committing. Star-drift `WARN`s are the signal that this self-iterate run should update those numbers.
+
+## D.5 Confirm before committing
+
+Before committing, present the user a summary of what changed — files touched, the draft CHANGELOG entry, and any newly added skills — and get explicit go-ahead. Do not commit sweeping manifest changes unreviewed.
 
 ## E. Record + commit
 

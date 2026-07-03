@@ -21,32 +21,62 @@
 | | 🛠️ 安装模式 · Install mode | 🔄 自迭代模式 · Self-iterate mode |
 |---|---|---|
 | **入口 · Entry** | [`AGENTS.md`](./AGENTS.md) | [`SELF-UPDATE.md`](./SELF-UPDATE.md) |
-| **做什么 · What** | Agent 识别自己 → 读适配矩阵 → 装适配自己的 skill → 验证 → 汇报<br>Identify self → read matrix → install fitting skills → verify → report | 刷新星数(GitHub API)→ 校验仓库存活 → 发现新工具 → 写 CHANGELOG → 提交<br>Refresh stars via API → check repos → discover new tools → log → commit |
-| **一句话 · One-liner** | 新环境一键上手<br>Bootstrap a fresh environment | 让清单自我保鲜<br>Keep the manifest fresh |
+| **做什么 · What** | 识别 → 匹配 → 安装 → 验证 | 刷新数据 → 发现 → 提交 |
+| **一句话 · One-liner** | 一键上手 · Bootstrap | 保持新鲜 · Keep fresh |
 
-> 一句话用法 · TL;DR — clone 本仓库，对你的 Agent 说：**"读 AGENTS.md 并按说明安装 skill"**。
+**安装模式** — Agent 识别自己 → 读适配矩阵 → 装适配自己的 skill → 验证 → 汇报。
+**Install mode** — the agent identifies itself, reads the compatibility matrix, installs the skills that fit it, verifies, and reports back.
+
+**自迭代模式** — 刷新星数(GitHub API)→ 校验仓库存活 → 发现新工具 → 写 CHANGELOG → 提交。
+**Self-iterate mode** — refresh star counts via the GitHub API, check repos are still alive, discover new tools, log to CHANGELOG, and commit.
+
+> 一句话用法 · TL;DR — clone 本仓库,对你的 Agent 说:**"读 AGENTS.md 并按说明安装 skill"**。
 > Clone this repo and tell your agent: **"read AGENTS.md and install the skills."**
+
+**一览 · At a glance** — 完整矩阵见 [`skills/INDEX.md`](./skills/INDEX.md),这里截取三行看个形状:
+**At a glance** — the full matrix lives in [`skills/INDEX.md`](./skills/INDEX.md); here's a 3-row excerpt to see the shape:
+
+```
+| # | Skill | Type | Claude Code | Codex | OpenCode | Stars |
+|---|-------|------|:-----------:|:-----:|:--------:|-------|
+| 1  | [Superpowers](./skills/superpowers.md)                   | Framework | ✅ | ✅ | ✅ | 245k |
+| 5  | [Vercel Agent Skills](./skills/vercel-agent-skills.md)   | Bundle    | ✅ | ✅ | ✅ | 28.6k |
+| 10 | [Awesome Agent Skills](./skills/awesome-agent-skills.md) | Directory | ✅ | ✅ | ✅ | 27.2k |
+```
+
+**前置条件 · Prerequisites** — 大多数安装通过 `npx skills add <owner/repo>` 完成(即 skills.sh 提供的 `skills` CLI),因此需要 **Node.js / npx**;其中一项使用 `pnpx`(pnpm)。
+Most installs run via `npx skills add <owner/repo>` (the `skills` CLI from skills.sh), so **Node.js / npx** is required; one entry uses `pnpx` (pnpm).
 
 ---
 
 ## 中文
 
-**这是什么** — 一个纯文档仓库,收录了一份跨 Agent 通用的推荐 skill 清单,任意 AI 编程 Agent 都能读懂并据此为自己安装合适的 skill。
-**给 Agent** — 让你的 Agent 读 [`AGENTS.md`](./AGENTS.md),它会自动挑出适配自己的 skill 并安装。
-**给用户** — 在你的 Agent 里打开本仓库,说"读 AGENTS.md 并按说明安装 skill"。
-**清单** — 见 [`skills/INDEX.md`](./skills/INDEX.md)。
-**原理** — 见 [`docs/how-it-works.md`](./docs/how-it-works.md)。
-**贡献** — 见 [`CONTRIBUTING.md`](./CONTRIBUTING.md)。
-**自迭代** — 让 Agent 读 [`SELF-UPDATE.md`](./SELF-UPDATE.md) 自动刷新信息、发现新工具。
-> 星数与适配情况以 2026-07 为准。
+**这是什么** — 一个纯文档仓库,收录了一份跨 Agent 通用的推荐 skill 清单(工作原理见上方"两种模式")。
+
+- 清单: [`skills/INDEX.md`](./skills/INDEX.md)
+- 安装入口: [`AGENTS.md`](./AGENTS.md)
+- 自迭代入口: [`SELF-UPDATE.md`](./SELF-UPDATE.md)
+- 原理: [`docs/how-it-works.md`](./docs/how-it-works.md)
+- 贡献: [`CONTRIBUTING.md`](./CONTRIBUTING.md)
+
+**许可 · License** — MIT — see [LICENSE](./LICENSE)。
 
 ## English
 
-**What** — A documentation-only repo containing a cross-agent manifest of recommended skills that any AI coding agent can read and use to install the skills that fit it.
-**For agents** — Point your agent at [`AGENTS.md`](./AGENTS.md); it selects and installs the skills that fit it.
-**For humans** — Open this repo in your agent and say "read AGENTS.md and install the skills."
-**Manifest** — see [`skills/INDEX.md`](./skills/INDEX.md).
-**How it works** — see [`docs/how-it-works.md`](./docs/how-it-works.md).
-**Contributing** — see [`CONTRIBUTING.md`](./CONTRIBUTING.md).
-**Self-iterate** — point your agent at [`SELF-UPDATE.md`](./SELF-UPDATE.md) to refresh data and discover new tools.
-> Star counts and compatibility are as of 2026-07.
+**What** — A documentation-only repo containing a cross-agent manifest of recommended skills (see "Two modes" above for how it works).
+
+- Manifest: [`skills/INDEX.md`](./skills/INDEX.md)
+- Install entry: [`AGENTS.md`](./AGENTS.md)
+- Self-iterate entry: [`SELF-UPDATE.md`](./SELF-UPDATE.md)
+- How it works: [`docs/how-it-works.md`](./docs/how-it-works.md)
+- Contributing: [`CONTRIBUTING.md`](./CONTRIBUTING.md)
+
+**License** — MIT — see [LICENSE](./LICENSE).
+
+---
+
+## 免责声明 · Disclaimer
+
+本清单收录的所有 skill / 工具均为第三方项目;相关名称与商标归其各自所有者所有;收录不代表认可或存在关联关系。星数与适配情况均为尽力而为的快照(以标注日期为准),可能已过期 — 使用前请自行核实。
+
+All skills/tools listed here are third-party projects; names and trademarks belong to their respective owners. Listing here does not imply endorsement or affiliation. Star counts and compatibility are best-effort snapshots (as of the stamped date) and may be stale — verify before relying on them.

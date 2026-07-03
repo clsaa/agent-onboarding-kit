@@ -4,7 +4,7 @@
 - **Repo:** https://github.com/obra/superpowers
 - **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
 - **Install:**
-  - Claude Code: `/plugin install superpowers@claude-plugins-official`
+  - Claude Code: `/plugin install superpowers@claude-plugins-official` (`claude-plugins-official` is a built-in marketplace pre-registered with Claude Code, so no `/plugin marketplace add` is needed first)
   - Codex / OpenCode / others: `npx skills add obra/superpowers`
 - **Verify:** Ask the agent to list skills; `brainstorming`/`test-driven-development` appear.
 - **When to use / skip:** Use for any serious multi-step dev work; skip for one-off scripts.

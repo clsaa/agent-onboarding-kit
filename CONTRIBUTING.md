@@ -36,7 +36,7 @@ Pick a short, kebab-case slug for the skill (e.g. `my-new-skill`), and create `s
 
 ### 3. Add one row to `skills/INDEX.md`
 
-Open [`skills/INDEX.md`](./skills/INDEX.md) and add exactly one new row to the correct table — the "Core skills" table for foundational picks, or the "Extra picks" table for supplementary/tailored ones. The row must use the same columns as existing rows (`Skill | Category | Claude Code | Codex | OpenCode | Stars | Details`) and its `Details` cell must link to the file you created in step 2, e.g. `[Details](./my-new-skill.md)`. Do not create a new table or change the existing column order.
+Open [`skills/INDEX.md`](./skills/INDEX.md) and add exactly one new row to the correct table — the "Core skills" table for foundational picks, or the "Extra picks" table for supplementary ones. The row must use the same columns as existing rows: `# | Skill | Type | Claude Code | Codex | OpenCode | Stars`. Give it the next sequential `#`; put the skill name in the `Skill` cell as a link to the file you created in step 2, e.g. `[My New Skill](./my-new-skill.md)`; and set `Type` to one of `Framework`, `Bundle`, `Collection`, or `Directory`. Do not create a new table or change the existing column order.
 
 ### 4. Keep compatibility symbols honest
 
@@ -76,3 +76,9 @@ bash tests/e2e.sh          # set GITHUB_TOKEN to avoid API rate limits
 ```
 
 Expected: `E2E OK` (exit 0). See [`tests/README.md`](./tests/README.md).
+
+## Maintainer notes · 维护说明
+
+PRs are reviewed by the maintainer on a best-effort basis — there's no SLA, so please be patient. Self-iterate runs (per [`SELF-UPDATE.md`](./SELF-UPDATE.md)) should be submitted as a PR through this same review process, not committed directly to `main` without a human check. Star counts and compatibility data are best-effort snapshots and may lag reality — see something stale, open an issue.
+
+维护者会尽力审查 PR,但没有固定时限(SLA)。按 [`SELF-UPDATE.md`](./SELF-UPDATE.md) 跑的自迭代同样要走 PR 审查,不要未经人工检查就直接提交到 `main`。星数与兼容性数据是尽力而为的快照,可能滞后于现实——发现过期请提 issue。

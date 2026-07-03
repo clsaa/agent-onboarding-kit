@@ -7,5 +7,5 @@
   - Claude Code: `pnpx skills add antfu/skills --skill='*'`
   - Codex / OpenCode / others: `pnpx skills add antfu/skills --skill='*'`
 - **Verify:** Ask the agent to list skills; Vue/Vite/Nuxt skills appear.
-- **When to use / skip:** Use for Vue/Vite/Nuxt projects wanting expert conventions; skip for non-Vue stacks.
+- **When to use / skip:** Use for Vue/Vite/Nuxt projects wanting expert conventions; skip for non-Vue stacks. Note: `pnpx` is pnpm's `npx` equivalent (use `npx` instead if you're on npm), and `--skill='*'` installs all skills from the collection.
 - **Stars:** ~5.5k (as of 2026-07)
