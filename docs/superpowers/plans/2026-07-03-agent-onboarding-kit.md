@@ -141,11 +141,12 @@ git commit -m "docs: add bilingual README, LICENSE, gitignore"
      - Step 4 — Run the skill's Verify step; if it fails, report the failure and continue.
      - Step 5 — Report to the user: installed, skipped (with reason), and any failures.
   4. A **"Rules"** block: never run scripts not listed here; never modify the user's unrelated config; ask the user before installing if they only wanted a subset; treat `⚠️` items as opt-in.
+  5. A closing **"Two modes"** note: this file is the *install* mode; to *update/self-iterate* this repo (refresh star counts, verify repos, discover new tools), see [`SELF-UPDATE.md`](./SELF-UPDATE.md).
 
 - [ ] **Step 2: Verify content**
 
-Run: `grep -E "Step [0-5]" AGENTS.md | wc -l && grep -c "skills/INDEX.md" AGENTS.md`
-Expected: at least 6 "Step N" lines (0–5); `skills/INDEX.md` referenced at least once.
+Run: `grep -E "Step [0-5]" AGENTS.md | wc -l && grep -c "skills/INDEX.md" AGENTS.md && grep -c "SELF-UPDATE.md" AGENTS.md`
+Expected: at least 6 "Step N" lines (0–5); `skills/INDEX.md` referenced at least once; `SELF-UPDATE.md` referenced at least once.
 
 - [ ] **Step 3: Commit**
 
@@ -330,9 +331,65 @@ git commit -m "docs: add how-it-works and CONTRIBUTING"
 
 ---
 
+### Task 7: Self-iteration — SELF-UPDATE.md + CHANGELOG.md
+
+**Files:**
+- Create: `SELF-UPDATE.md`
+- Create: `CHANGELOG.md`
+- Modify: `README.md` (add a pointer link to `SELF-UPDATE.md` in both language sections)
+
+**Interfaces:**
+- Consumes: the entry template (Task 4), the `skills/INDEX.md` structure (Task 3), the CONTRIBUTING rules (Task 6), the structural checks used across tasks.
+- Produces: the repo's "self-iterate" mode. After this task the repo can update itself.
+
+- [ ] **Step 1: Write `SELF-UPDATE.md`** (English, agent-facing — a maintainer playbook). It is the counterpart to `AGENTS.md`: `AGENTS.md` = install mode, `SELF-UPDATE.md` = update mode. Must contain, in order:
+  1. A one-paragraph purpose statement: "You were told to self-iterate this repo. Follow this playbook to refresh existing entries and discover new useful tools, then commit."
+  2. **"A. Refresh existing entries"** — for every skill in `skills/INDEX.md` and each `skills/*.md`:
+     - Call the GitHub API `GET https://api.github.com/repos/{owner}/{repo}` (e.g. `curl -s`). Update the `Stars:` field from `stargazers_count` (round to ~Nk).
+     - If the response is `Not Found`, `archived: true`, or the repo redirects/renames, flag it: add a `> ⚠️ status` note in that file and in the INDEX row; do NOT silently delete.
+     - Re-read the repo's README/homepage to confirm the `Compatibility` claims still hold; update symbols if they changed.
+     - Update the `as of YYYY-MM` stamp everywhere to the current month.
+  3. **"B. Discover new tools"** — search for new high-value skills/subagents/rules that fit this repo's scope (cross-agent skills for Claude Code/Codex/OpenCode) and the maintainer's profile (AI / system-architecture / full-stack). Sources to check: `VoltAgent/awesome-agent-skills`, `addyosmani/agent-skills`, skills.sh, GitHub trending for "agent skills". For each genuinely new, verified candidate: create `skills/<slug>.md` from the entry template, add a row to the correct `skills/INDEX.md` table, following `CONTRIBUTING.md`.
+  4. **"C. Guardrails"** (explicit): star counts must come from the live GitHub API — never invent or estimate; keep the exact entry template; add at most 5 new skills per run and list each in the changelog; prefer cross-agent tools; when unsure whether a tool belongs, add it to a `## Candidates (needs human review)` section at the bottom of `skills/INDEX.md` instead of the main tables.
+  5. **"D. Consistency check"** — run the repo's structural checks: every INDEX link resolves to a file; every skill file has all template fields; no placeholder tokens.
+  6. **"E. Record + commit"** — prepend a dated entry to `CHANGELOG.md` summarizing: stars updated (count), repos flagged (list), skills added (list). Commit with message `chore: self-iterate manifest (YYYY-MM-DD)`.
+
+- [ ] **Step 2: Write `CHANGELOG.md`** — a seed entry:
+```markdown
+# Changelog
+
+All self-iteration runs are logged here (newest first). See [`SELF-UPDATE.md`](./SELF-UPDATE.md).
+
+## 2026-07-03 — Initial manifest
+- Seeded 10 core skills + 5 extra picks. Star counts and compatibility verified as of 2026-07.
+```
+
+- [ ] **Step 3: Update `README.md`** — in BOTH the 中文 and English sections, add one line pointing to `SELF-UPDATE.md`, e.g. 中文: "**自迭代** — 让 Agent 读 [`SELF-UPDATE.md`](./SELF-UPDATE.md) 自动刷新信息、发现新工具。" / English: "**Self-iterate** — point your agent at [`SELF-UPDATE.md`](./SELF-UPDATE.md) to refresh data and discover new tools."
+
+- [ ] **Step 4: Verify**
+
+Run:
+```bash
+ls SELF-UPDATE.md CHANGELOG.md
+grep -c "api.github.com" SELF-UPDATE.md          # API refresh instruction present (>=1)
+grep -c "SELF-UPDATE.md" README.md               # both README sections link it (>=2)
+grep -E "A\.|B\.|C\.|D\.|E\." SELF-UPDATE.md | wc -l   # all five phases present (>=5)
+```
+Expected: both files listed; `api.github.com` ≥ 1; README references ≥ 2; five phase markers ≥ 5.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add SELF-UPDATE.md CHANGELOG.md README.md
+git commit -m "docs: add SELF-UPDATE self-iteration playbook and CHANGELOG"
+```
+
+---
+
 ## Definition of done
 
-- `AGENTS.md`, `README.md` (bilingual), `skills/INDEX.md`, 10 core `skills/*.md`, 5 `skills/extra-*.md`, `docs/how-it-works.md`, `CONTRIBUTING.md` all present.
+- `AGENTS.md`, `README.md` (bilingual), `skills/INDEX.md`, 10 core `skills/*.md`, 5 `skills/extra-*.md`, `docs/how-it-works.md`, `CONTRIBUTING.md`, `SELF-UPDATE.md`, `CHANGELOG.md` all present.
+- Two modes documented: install (`AGENTS.md`) and self-iterate (`SELF-UPDATE.md`).
 - Every INDEX matrix row links to an existing file; every skill file has all template fields.
 - No placeholders; all repo URLs and commands match the verified data table.
 - Repo is committed locally; **not pushed** (per scope decision).

@@ -86,6 +86,10 @@ Accurate repo URLs, install commands, and compatibility are taken from live-veri
 
 Selected during implementation from high-value candidates, each following the same template and honestly sourced (no inflated claims). Seed candidates: `addyosmani/agent-skills` (~68k), skill-creator (from `anthropics/skills`), plus 1–2 general-purpose rules/subagents. Final 5 chosen when writing content.
 
+## Self-iteration mode (SELF-UPDATE.md)
+
+The repo has two modes. `AGENTS.md` is **install mode**. `SELF-UPDATE.md` is **update mode**: a maintainer playbook an agent runs when told "self-iterate this repo." It (A) refreshes every entry's star count and compatibility from the live GitHub API and updates the date stamp, flagging dead/renamed repos rather than deleting; (B) discovers new high-value tools fitting the repo's scope and the maintainer's profile, adding them via the entry template + CONTRIBUTING; (C) enforces guardrails (API-verified numbers only, keep the template, ≤5 new per run, uncertain finds go to a "Candidates (needs human review)" section); (D) runs the structural consistency checks; (E) logs the run to `CHANGELOG.md` and commits. This keeps the manifest self-maintaining after clone.
+
 ## Agent usage flow (documented in AGENTS.md)
 
 The agent is instructed to:
