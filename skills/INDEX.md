@@ -25,9 +25,9 @@ Tailored to the user's profile (AI expert / system architect / full-stack develo
 |-------|----------|:-----------:|:-----:|:--------:|-------|---------|
 | addyosmani Agent Skills | Skills collection (incl. context-engineering) | ✅ | ✅ | ✅ | 68.7k | [Details](./extra-addyosmani-agent-skills.md) |
 | skill-creator | Meta-skill: author/edit/eval skills | ✅ | ⚠️ | ⚠️ | 158k | [Details](./extra-skill-creator.md) |
-| Awesome MCP Servers | Directory of MCP servers | ✅ | ✅ | ✅ | 60k+ | [Details](./extra-awesome-mcp-servers.md) |
+| Awesome MCP Servers | Directory of MCP servers | ✅ | ✅ | ✅ | 90k | [Details](./extra-awesome-mcp-servers.md) |
 | Antigravity Awesome Skills | 1,800+ installable skills + installer CLI | ✅ | ✅ | ✅ | 42.3k | [Details](./extra-antigravity-awesome-skills.md) |
-| Composio Awesome Claude Skills | Curated Claude skills index | ✅ | ⚠️ | ⚠️ | (index) | [Details](./extra-awesome-claude-skills.md) |
+| Composio Awesome Claude Skills | Curated Claude skills index | ✅ | ⚠️ | ⚠️ | 67k | [Details](./extra-awesome-claude-skills.md) |
 
 ## Legend
 
