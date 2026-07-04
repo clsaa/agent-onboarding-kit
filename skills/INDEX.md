@@ -12,7 +12,7 @@ This is the machine-readable manifest for the Agent Onboarding Kit: it lists eve
 
 | # | Skill | Type | Claude Code | Codex | OpenCode | Stars |
 |---|-------|------|:-----------:|:-----:|:--------:|-------|
-| 1 | [Superpowers](./superpowers.md) | Framework | ✅ | ✅ | ✅ | 245k |
+| 1 | [Superpowers](./superpowers.md) | Framework | ✅ | ✅ | ✅ | 246k |
 | 2 | [SuperClaude Framework](./superclaude-framework.md) | Framework | ✅ | ❌ | ❌ | 23.4k |
 | 3 | [MiniMax Skills](./minimax-skills.md) | Bundle | ✅ | ✅ | ✅ | 12.9k |
 | 4 | [Anthropic Official Skills](./anthropic-official-skills.md) | Bundle | ✅ | ⚠️ | ⚠️ | 158k |
@@ -29,11 +29,19 @@ Opinionated extras oriented toward AI, architecture, and full-stack work. The co
 
 | # | Skill | Type | Claude Code | Codex | OpenCode | Stars |
 |---|-------|------|:-----------:|:-----:|:--------:|-------|
-| 1 | [addyosmani Agent Skills](./extra-addyosmani-agent-skills.md) | Collection | ✅ | ✅ | ✅ | 68.7k |
+| 1 | [addyosmani Agent Skills](./extra-addyosmani-agent-skills.md) | Collection | ✅ | ✅ | ✅ | 68.8k |
 | 2 | [skill-creator](./extra-skill-creator.md) | Bundle | ✅ | ⚠️ | ⚠️ | 158k |
 | 3 | [Awesome MCP Servers](./extra-awesome-mcp-servers.md) | Directory | ✅ | ✅ | ✅ | 90k |
 | 4 | [Antigravity Awesome Skills](./extra-antigravity-awesome-skills.md) | Directory | ✅ | ✅ | ✅ | 42.3k |
 | 5 | [Composio Awesome Claude Skills](./extra-awesome-claude-skills.md) | Directory | ✅ | ⚠️ | ⚠️ | 67k |
+| 6 | [Taste Skill](./extra-taste-skill.md) | Collection | ✅ | ✅ | ✅ | 55.7k |
+| 7 | [UI/UX Pro Max Skill](./extra-ui-ux-pro-max-skill.md) | Collection | ✅ | ⚠️ | ⚠️ | 100k |
+
+## Candidates (needs human review)
+
+Surfaced by `scripts/discover.sh` but not yet promoted to the tables above — each needs a verified per-agent install command first:
+
+- [Graphify](https://github.com/Graphify-Labs/graphify) (~77.2k) — cross-agent code knowledge-graph skill; its topics/README name Claude Code, Codex, and OpenCode. Install is Python/`uv`-based rather than the usual `npx skills add`, so it needs a verified per-agent command before it can be added as a first-class entry.
 
 ---
 

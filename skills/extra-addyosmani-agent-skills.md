@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: `npx skills add addyosmani/agent-skills`
 - **Verify:** Ask the agent to list skills; addyosmani skills appear.
 - **When to use / skip:** Bonus pick — the largest general skills collection in this kit, giving full-stack breadth beyond the core 10; use to broaden coverage once the core picks are installed, but skip if you want to avoid overlap since some skills here duplicate ground already covered by Context Engineering (#7) and Vercel Agent Skills (#5).
-- **Stars:** ~68.7k (as of 2026-07)
+- **Stars:** ~68.8k (as of 2026-07)

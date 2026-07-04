@@ -6,6 +6,18 @@ date-based entries rather than SemVer versions. See [`SELF-UPDATE.md`](./SELF-UP
 
 ## [Unreleased]
 
+## [2026-07-04] — Self-iterate run
+
+### Added
+- 2 new extra picks discovered via `scripts/discover.sh` and verified: [Taste Skill](./skills/extra-taste-skill.md) (`Leonxlnx/taste-skill`, ~55.7k) and [UI/UX Pro Max Skill](./skills/extra-ui-ux-pro-max-skill.md) (`nextlevelbuilder/ui-ux-pro-max-skill`, ~100k).
+- "Candidates (needs human review)" section in `skills/INDEX.md` with `Graphify-Labs/graphify` (~77.2k) — held back pending a verified per-agent install command.
+
+### Changed
+- Star refresh: Superpowers 245k→246k; addyosmani Agent Skills 68.7k→68.8k. All other entries unchanged at manifest precision.
+
+### Notes
+- Repos flagged/dead: none. E2E gate: 41 checks, 0 failed. `scripts/discover.sh` surfaced ~117 candidates; skipped agent-harnesses/desktop apps/MCP-proxies (out of scope) and Claude-only tools (prefer cross-agent).
+
 ## [2026-07-03]
 
 ### Added

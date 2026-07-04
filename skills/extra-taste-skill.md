@@ -1,0 +1,11 @@
+# Taste Skill
+- **Category:** Design / taste skill
+- **What it does:** Gives an AI coding agent better design "taste" — steers it away from generic, boilerplate-looking output toward more polished, considered UI and copy.
+- **Repo:** https://github.com/Leonxlnx/taste-skill
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Claude Code: `npx skills add https://github.com/Leonxlnx/taste-skill`
+  - Codex / OpenCode / others: `npx skills add https://github.com/Leonxlnx/taste-skill`
+- **Verify:** Ask the agent to list skills; the taste-skill entries appear.
+- **When to use / skip:** Bonus pick for front-end / full-stack work where visual quality matters; installs via the same cross-agent `skills` CLI as the other picks (it scans the repo's `skills/` folder). Skip if your work is backend-only.
+- **Stars:** ~55.7k (as of 2026-07)

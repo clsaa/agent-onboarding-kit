@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: `npx skills add obra/superpowers`
 - **Verify:** Ask the agent to list skills; `brainstorming`/`test-driven-development` appear.
 - **When to use / skip:** Use for any serious multi-step dev work; skip for one-off scripts.
-- **Stars:** ~245k (as of 2026-07)
+- **Stars:** ~246k (as of 2026-07)
