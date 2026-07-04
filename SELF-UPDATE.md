@@ -55,6 +55,7 @@ For each candidate you keep:
 1. Verify its star count via the GitHub API (never estimate) and its compatibility by actually reading its docs/README (never assume the `[cross-agent]` hint — it's only a heuristic from the description). A compatibility claim taken only from an upstream README/prose is `⚠️` at most. Reserve `✅` for compatibility you (or the manifest) actually confirmed by a successful install/dry-run.
 2. Create `skills/<slug>.md` (or `skills/extra-<slug>.md` for a supplementary pick) from the entry template in `CONTRIBUTING.md`, filled in completely.
 3. Add exactly one row to the correct table in `skills/INDEX.md`, following `CONTRIBUTING.md` step 3.
+4. If you added or removed any entries, update the `skills-N core + M extra` count in the `README.md` badge to match.
 
 The helper only covers the GitHub Search API. Also skim these curated catalogs, which surface things search ranks poorly — several are already directory entries in this manifest: `VoltAgent/awesome-agent-skills`, `addyosmani/agent-skills`, `sickn33/antigravity-awesome-skills`, and skills.sh.
 
