@@ -36,12 +36,7 @@ Opinionated extras oriented toward AI, architecture, and full-stack work. The co
 | 5 | [Composio Awesome Claude Skills](./extra-awesome-claude-skills.md) | Directory | ✅ | ⚠️ | ⚠️ | 67k |
 | 6 | [Taste Skill](./extra-taste-skill.md) | Collection | ✅ | ✅ | ✅ | 55.7k |
 | 7 | [UI/UX Pro Max Skill](./extra-ui-ux-pro-max-skill.md) | Collection | ✅ | ⚠️ | ⚠️ | 100k |
-
-## Candidates (needs human review)
-
-Surfaced by `scripts/discover.sh` but not yet promoted to the tables above — each needs a verified per-agent install command first:
-
-- [Graphify](https://github.com/Graphify-Labs/graphify) (~77.2k) — cross-agent code knowledge-graph skill; its topics/README name Claude Code, Codex, and OpenCode. Install is Python/`uv`-based rather than the usual `npx skills add`, so it needs a verified per-agent command before it can be added as a first-class entry.
+| 8 | [Graphify](./extra-graphify.md) | Collection | ✅ | ✅ | ✅ | 77.2k |
 
 ---
 

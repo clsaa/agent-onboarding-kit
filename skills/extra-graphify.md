@@ -1,0 +1,13 @@
+# Graphify
+- **Category:** Code knowledge-graph skill
+- **What it does:** Turns a folder of code, SQL schemas, scripts, and docs into a queryable knowledge graph (GraphRAG + tree-sitter), giving an agent structured, whole-repo context instead of ad-hoc file reads.
+- **Repo:** https://github.com/Graphify-Labs/graphify
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Prerequisite: `uv tool install graphifyy` (installs the `graphify` CLI; note the package is `graphifyy`, the command is `graphify`. `pipx install graphifyy` also works. Requires Python + uv/pipx.)
+  - Claude Code: `graphify install`
+  - Codex: `graphify install --platform codex`
+  - OpenCode: `graphify install --platform opencode`
+- **Verify:** Run `graphify --version`; then ask the agent to list skills — `graphify` appears.
+- **When to use / skip:** Bonus pick for large/unfamiliar codebases where whole-repo structural context helps (AI / architecture work); it has explicit per-agent install commands across Claude Code, Codex, and OpenCode. Skip for small repos, or if you'd rather not add a Python/uv toolchain.
+- **Stars:** ~77.2k (as of 2026-07)
