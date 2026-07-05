@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# End-to-end validation for agent-onboarding-kit.
+# End-to-end validation for skillrc.
 #
 # Verifies the manifest is internally consistent and that BOTH modes are
 # executable by a real agent:

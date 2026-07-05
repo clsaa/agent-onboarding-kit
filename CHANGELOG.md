@@ -13,6 +13,7 @@ date-based entries rather than SemVer versions. See [`SELF-UPDATE.md`](./SELF-UP
 - Triage log extended with 22 deep-checked rejections, each with a dated reason (harnesses/runtimes, GUI apps, MCP infrastructure, directories, a prompt-leak archive, one off-profile skill).
 
 ### Changed
+- **Renamed: `agent-onboarding-kit` → `skillrc`** ("the rc file for your AI coding agent"). Old GitHub URLs redirect automatically; all in-repo references updated.
 - Star refresh across all existing entries: 8 values ticked up (awesome-agent-skills 27.3k, addyosmani 69k, antigravity 42.4k, graphify 77.7k, taste-skill 56.6k, ui-ux-pro-max 101k, planning-with-files 24.5k, vercel 28.7k). README badge → 10 core + 14 extra.
 
 ### Notes

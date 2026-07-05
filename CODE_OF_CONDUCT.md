@@ -51,10 +51,10 @@ an individual is officially representing the community in public spaces.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by opening a [GitHub issue](https://github.com/clsaa/agent-onboarding-kit/issues)
+reported by opening a [GitHub issue](https://github.com/clsaa/skillrc/issues)
 on this repository. (There is no public maintainer email for this project; GitHub
 issues are the reporting channel. If the report concerns sensitive content you'd
-rather not post publicly, use a private [security advisory](https://github.com/clsaa/agent-onboarding-kit/security/advisories/new)
+rather not post publicly, use a private [security advisory](https://github.com/clsaa/skillrc/security/advisories/new)
 instead and note that it's a conduct report, not a security issue.)
 
 All complaints will be reviewed and investigated promptly and fairly.

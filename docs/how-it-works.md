@@ -4,7 +4,7 @@
 
 ### 这是什么样的仓库
 
-`agent-onboarding-kit` 是一个**纯文档仓库**——没有构建系统、没有脚本、没有 CI。它把"文档当作产品"(docs-as-product):仓库本身不安装任何东西,它只是一份结构化、机器可读的清单,由打开这个仓库的 AI 编程 Agent(Claude Code / Codex / OpenCode 等)自己读懂、自己决定装什么、自己执行安装命令。换句话说,产品不是代码,而是这些 Markdown 文件本身——它们的结构、措辞和可核验性就是全部的交付物。
+`skillrc` 是一个**纯文档仓库**——没有构建系统、没有脚本、没有 CI。它把"文档当作产品"(docs-as-product):仓库本身不安装任何东西,它只是一份结构化、机器可读的清单,由打开这个仓库的 AI 编程 Agent(Claude Code / Codex / OpenCode 等)自己读懂、自己决定装什么、自己执行安装命令。换句话说,产品不是代码,而是这些 Markdown 文件本身——它们的结构、措辞和可核验性就是全部的交付物。
 
 ### `AGENTS.md` 的角色
 
@@ -38,7 +38,7 @@ Agent 只需要找到自己对应的那一列,筛出 `✅`(以及愿意尝试的
 
 ### What kind of repo this is
 
-`agent-onboarding-kit` is a **documentation-only repo** — no build system, no scripts, no CI. It treats docs as the product: the repo itself installs nothing. It is a structured, machine-readable manifest that any AI coding agent (Claude Code, Codex, OpenCode, etc.) opens, reads, and acts on directly — deciding for itself what to install and running the install commands itself. The deliverable isn't code; it's the Markdown files themselves — their structure, wording, and verifiability are the whole product.
+`skillrc` is a **documentation-only repo** — no build system, no scripts, no CI. It treats docs as the product: the repo itself installs nothing. It is a structured, machine-readable manifest that any AI coding agent (Claude Code, Codex, OpenCode, etc.) opens, reads, and acts on directly — deciding for itself what to install and running the install commands itself. The deliverable isn't code; it's the Markdown files themselves — their structure, wording, and verifiability are the whole product.
 
 ### The role of `AGENTS.md`
 

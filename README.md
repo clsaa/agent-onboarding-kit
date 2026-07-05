@@ -1,14 +1,15 @@
-# 🚀 agent-onboarding-kit
+# ⚡ skillrc
 
+> **The rc file for your AI coding agent.**
 > **Point any AI coding agent at one file — it reads it and sets itself up.**
 > Claude Code · Codex · OpenCode. A curated, cross-agent skills manifest — and unlike a static awesome-list, **it updates itself.**
 >
 > **让任意 AI 编程 Agent 读一个文件，就自己装好一套推荐 skill。** 跨 Agent、经过验证，而且**清单能自我更新**——这是它区别于所有静态 awesome-list 的地方。
 
 <p align="center">
-  <a href="https://github.com/clsaa/agent-onboarding-kit/actions/workflows/e2e.yml"><img alt="E2E" src="https://github.com/clsaa/agent-onboarding-kit/actions/workflows/e2e.yml/badge.svg"></a>
+  <a href="https://github.com/clsaa/skillrc/actions/workflows/e2e.yml"><img alt="E2E" src="https://github.com/clsaa/skillrc/actions/workflows/e2e.yml/badge.svg"></a>
   <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="https://github.com/clsaa/agent-onboarding-kit/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/clsaa/agent-onboarding-kit?style=flat&logo=github"></a>
+  <a href="https://github.com/clsaa/skillrc/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/clsaa/skillrc?style=flat&logo=github"></a>
   <img alt="Skills" src="https://img.shields.io/badge/skills-10%20core%20%2B%2014%20extra-blue">
   <img alt="Agents" src="https://img.shields.io/badge/agents-Claude%20Code%20%7C%20Codex%20%7C%20OpenCode-8A2BE2">
   <a href="./CONTRIBUTING.md"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen"></a>
@@ -51,7 +52,7 @@ That's it — the agent identifies itself, filters the compatibility matrix, ins
 
 ## 🆚 Why not just a skills list? · 和普通清单有何不同
 
-|  | 📄 Static awesome-list | 🛠️ A single registry (e.g. skills.sh) | 🚀 **agent-onboarding-kit** |
+|  | 📄 Static awesome-list | 🛠️ A single registry (e.g. skills.sh) | 🚀 **skillrc** |
 |---|:---:|:---:|:---:|
 | Cross-agent (Claude Code / Codex / OpenCode) matrix · 跨 Agent 适配矩阵 | ⚠️ mixed | ✅ | ✅ |
 | Per-agent install command for each skill · 逐 Agent 安装命令 | ❌ | ⚠️ | ✅ |

@@ -7,7 +7,7 @@ This repo has no runtime code — it's a documentation manifest. But two things 
 
 ## Reporting a vulnerability
 
-Please open a private GitHub security advisory: **Security → Report a vulnerability** on [clsaa/agent-onboarding-kit](https://github.com/clsaa/agent-onboarding-kit). Do not open a public issue for security concerns.
+Please open a private GitHub security advisory: **Security → Report a vulnerability** on [clsaa/skillrc](https://github.com/clsaa/skillrc). Do not open a public issue for security concerns.
 
 ## For users
 
