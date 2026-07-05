@@ -1,0 +1,12 @@
+# Understand Anything
+- **Category:** Codebase-comprehension plugin/skill
+- **What it does:** A multi-agent pipeline (subagents + slash commands + skills) that turns any codebase into an explorable, interactive knowledge-graph dashboard for onboarding and architecture review.
+- **Repo:** https://github.com/Egonex-AI/Understand-Anything
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Claude Code: `/plugin marketplace add Egonex-AI/Understand-Anything` then `/plugin install understand-anything`
+  - Codex: `curl -fsSL https://raw.githubusercontent.com/Egonex-AI/Understand-Anything/main/install.sh | bash -s codex` (review the script before piping to a shell)
+  - OpenCode: same installer with `bash -s opencode`
+- **Verify:** Ask the agent to list skills/commands; the understand-anything commands appear.
+- **When to use / skip:** Bonus pick for onboarding into large or unfamiliar codebases (architecture work); its README documents an unusually wide agent-support table. Overlaps somewhat with Graphify — pick one; skip both for small repos you already know.
+- **Stars:** ~70.9k (as of 2026-07)

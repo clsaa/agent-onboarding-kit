@@ -1,0 +1,11 @@
+# last30days
+- **Category:** Research / synthesis skill
+- **What it does:** Adds `/last30days <topic>` — searches Reddit, X, YouTube, HN, Polymarket and more in parallel, scores results by real engagement, and synthesizes a cited brief of the last 30 days on any topic.
+- **Repo:** https://github.com/mvanhorn/last30days-skill
+- **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
+- **Install:**
+  - Claude Code: `/plugin marketplace add mvanhorn/last30days-skill` then `/plugin install last30days`
+  - Codex / OpenCode / others: `npx skills add mvanhorn/last30days-skill -g` (drop `-g` for per-project scope; works across 50+ Agent Skills hosts)
+- **Verify:** `/last30days <topic>` (or asking for a last-30-days brief) produces a cited synthesis.
+- **When to use / skip:** Bonus pick for staying current on fast-moving topics (AI research, ecosystem watching). Skip if your agent has no web access or you don't need trend research.
+- **Stars:** ~49k (as of 2026-07)

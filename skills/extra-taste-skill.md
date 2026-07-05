@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: `npx skills add https://github.com/Leonxlnx/taste-skill`
 - **Verify:** Ask the agent to list skills; the taste-skill entries appear.
 - **When to use / skip:** Bonus pick for front-end / full-stack work where visual quality matters; installs via the same cross-agent `skills` CLI as the other picks (it scans the repo's `skills/` folder). Skip if your work is backend-only.
-- **Stars:** ~55.7k (as of 2026-07)
+- **Stars:** ~56.6k (as of 2026-07)

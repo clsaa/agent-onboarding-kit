@@ -6,6 +6,18 @@ date-based entries rather than SemVer versions. See [`SELF-UPDATE.md`](./SELF-UP
 
 ## [Unreleased]
 
+## [2026-07-05] — Self-iterate run (full triage under the new rules)
+
+### Added
+- 4 extra picks, each deep-verified from upstream docs before inclusion: [gstack](./skills/extra-gstack.md) (~119.5k, virtual-team skills, ✅✅✅), [Understand Anything](./skills/extra-understand-anything.md) (~70.9k, codebase knowledge-graph, ✅✅✅), [last30days](./skills/extra-last30days-skill.md) (~49k, research/synthesis, ✅✅✅), and [Andrej Karpathy Skills](./skills/extra-andrej-karpathy-skills.md) (~187.7k, rules pack — single-agent but exceptionally notable; repo transferred from `forrestchang`, canonical slug verified).
+- Triage log extended with 22 deep-checked rejections, each with a dated reason (harnesses/runtimes, GUI apps, MCP infrastructure, directories, a prompt-leak archive, one off-profile skill).
+
+### Changed
+- Star refresh across all existing entries: 8 values ticked up (awesome-agent-skills 27.3k, addyosmani 69k, antigravity 42.4k, graphify 77.7k, taste-skill 56.6k, ui-ux-pro-max 101k, planning-with-files 24.5k, vercel 28.7k). README badge → 10 core + 14 extra.
+
+### Notes
+- First run under the post-mortem triage rules: all 26 unlogged candidates above the star floor were deep-checked (README/INSTALL read) before any rejection — none rejected on description-derived hints. E2E gate green.
+
 ## [2026-07-05]
 
 ### Added

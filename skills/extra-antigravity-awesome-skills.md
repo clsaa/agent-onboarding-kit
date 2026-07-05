@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: browse index / installer CLI
 - **Verify:** Ask the agent to list skills; entries installed via the installer CLI appear.
 - **When to use / skip:** Bonus pick — the widest breadth of any pick in this kit (1,800+ skills), useful for full-stack developers who want maximum optionality; use when you want to search a large catalog for a niche skill, skip if you prefer the smaller, more curated core 10 to avoid choice overload.
-- **Stars:** ~42.3k (as of 2026-07)
+- **Stars:** ~42.4k (as of 2026-07)

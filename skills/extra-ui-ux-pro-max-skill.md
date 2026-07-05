@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: Codex support is listed by the project; a global CLI is available via `npm install -g ui-ux-pro-max-cli` — verify integration for your agent (⚠️ not cleanly documented per-agent).
 - **Verify:** In Claude Code, the `ui-ux-pro-max` plugin/skill is listed after install.
 - **When to use / skip:** Bonus pick for front-end / full-stack UI work; strongest on Claude Code today. Skip if you don't do UI, or if you run only Codex/OpenCode (support there is claimed but not cleanly documented — treat as opt-in).
-- **Stars:** ~100k (as of 2026-07)
+- **Stars:** ~101k (as of 2026-07)

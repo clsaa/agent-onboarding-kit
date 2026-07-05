@@ -9,7 +9,7 @@
   <a href="https://github.com/clsaa/agent-onboarding-kit/actions/workflows/e2e.yml"><img alt="E2E" src="https://github.com/clsaa/agent-onboarding-kit/actions/workflows/e2e.yml/badge.svg"></a>
   <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
   <a href="https://github.com/clsaa/agent-onboarding-kit/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/clsaa/agent-onboarding-kit?style=flat&logo=github"></a>
-  <img alt="Skills" src="https://img.shields.io/badge/skills-10%20core%20%2B%2010%20extra-blue">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-10%20core%20%2B%2014%20extra-blue">
   <img alt="Agents" src="https://img.shields.io/badge/agents-Claude%20Code%20%7C%20Codex%20%7C%20OpenCode-8A2BE2">
   <a href="./CONTRIBUTING.md"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen"></a>
   <img alt="Data as of" src="https://img.shields.io/badge/data-2026--07-lightgrey">
@@ -69,8 +69,8 @@ The last two rows are the point: this repo isn't just a list you read — it's a
 | # | Skill | Type | Claude Code | Codex | OpenCode | Stars |
 |---|-------|------|:-----------:|:-----:|:--------:|-------|
 | 1  | [Superpowers](./skills/superpowers.md)                   | Framework | ✅ | ✅ | ✅ | 246k |
-| 5  | [Vercel Agent Skills](./skills/vercel-agent-skills.md)   | Bundle    | ✅ | ✅ | ✅ | 28.6k |
-| 10 | [Awesome Agent Skills](./skills/awesome-agent-skills.md) | Directory | ✅ | ✅ | ✅ | 27.2k |
+| 5  | [Vercel Agent Skills](./skills/vercel-agent-skills.md)   | Bundle    | ✅ | ✅ | ✅ | 28.7k |
+| 10 | [Awesome Agent Skills](./skills/awesome-agent-skills.md) | Directory | ✅ | ✅ | ✅ | 27.3k |
 ```
 
 **前置条件 · Prerequisites** — 大多数安装通过 `npx skills add <owner/repo>` 完成(即 skills.sh 提供的 `skills` CLI),因此需要 **Node.js / npx**;其中一项使用 `pnpx`(pnpm)。

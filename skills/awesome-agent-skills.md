@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: browse and install individual skills via `npx skills add <owner/repo>`
 - **Verify:** Ask the agent to list skills; entries chosen from the index appear.
 - **When to use / skip:** Use to discover skills beyond this kit's core picks; skip if you just want a ready-made bundle (the space is fragmented and this repo—`VoltAgent/awesome-agent-skills`—is the canonical index chosen here).
-- **Stars:** ~27.2k (as of 2026-07)
+- **Stars:** ~27.3k (as of 2026-07)

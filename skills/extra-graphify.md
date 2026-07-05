@@ -10,4 +10,4 @@
   - OpenCode: `graphify install --platform opencode`
 - **Verify:** Run `graphify --version`; then ask the agent to list skills — `graphify` appears.
 - **When to use / skip:** Bonus pick for large/unfamiliar codebases where whole-repo structural context helps (AI / architecture work); it has explicit per-agent install commands across Claude Code, Codex, and OpenCode. Skip for small repos, or if you'd rather not add a Python/uv toolchain.
-- **Stars:** ~77.2k (as of 2026-07)
+- **Stars:** ~77.7k (as of 2026-07)
