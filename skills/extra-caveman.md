@@ -1,6 +1,6 @@
 # caveman
 - **Category:** Token-reduction skill
-- **What it does:** Makes the agent reply in terse "caveman-speak" to cut output tokens (~65% on replies) while keeping code, commands, and errors byte-for-byte exact.
+- **What it does:** Makes the agent reply in terse "caveman-speak" to cut output tokens (~65% on replies) while keeping code, commands, and errors byte-for-byte exact. The package also bundles helper commands (`caveman-commit/review/compress/stats`) and a sub-module called **`cavecrew`** — caveman's delegation layer (`cavecrew` = caveman + crew): opt-in sub-agents `cavecrew-investigator` (read-only code locator), `cavecrew-builder` (1–2 file edits), and `cavecrew-reviewer` (diff review) whose output is caveman-compressed before it returns to the main thread. So `cavecrew ⊂ caveman`: installing/removing caveman installs/removes cavecrew with it.
 - **Repo:** https://github.com/JuliusBrussee/caveman
 - **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
 - **Install:**
