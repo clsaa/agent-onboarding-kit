@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: `npx skills add OthmanAdi/planning-with-files`
 - **Verify:** Ask the agent to list skills; planning-with-files appears.
 - **When to use / skip:** Use for long-running or multi-session tasks needing durable external memory; skip for short single-turn tasks.
-- **Stars:** ~24.5k (as of 2026-07)
+- **Stars:** ~25.2k (as of 2026-07)

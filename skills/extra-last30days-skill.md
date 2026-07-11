@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: `npx skills add mvanhorn/last30days-skill -g` (drop `-g` for per-project scope; works across 50+ Agent Skills hosts)
 - **Verify:** `/last30days <topic>` (or asking for a last-30-days brief) produces a cited synthesis.
 - **When to use / skip:** Bonus pick for staying current on fast-moving topics (AI research, ecosystem watching). Skip if your agent has no web access or you don't need trend research.
-- **Stars:** ~49k (as of 2026-07)
+- **Stars:** ~51.5k (as of 2026-07)

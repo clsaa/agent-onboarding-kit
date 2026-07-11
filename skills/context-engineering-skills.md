@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: `npx skills add muratcankoylan/Agent-Skills-for-Context-Engineering`
 - **Verify:** Ask the agent to list skills; context-engineering skills appear.
 - **When to use / skip:** Use for long-context or token-constrained work needing active context management; skip for short, simple tasks.
-- **Stars:** ~16.9k (as of 2026-07)
+- **Stars:** ~17.1k (as of 2026-07)

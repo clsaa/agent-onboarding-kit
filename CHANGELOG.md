@@ -4,13 +4,21 @@ All self-iteration runs are logged here (newest first), following the spirit of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses
 date-based entries rather than SemVer versions. See [`SELF-UPDATE.md`](./SELF-UPDATE.md).
 
-## [Unreleased]
+## [2026-07-11] — Self-iterate run
+
+### Added
+- 3 extra picks, each deep-verified cross-agent from upstream docs before inclusion: [wshobson Agents](./skills/extra-wshobson-agents.md) (~37.8k, multi-harness plugin marketplace — 92 plugins across Claude Code/Codex/Cursor/OpenCode/Gemini/Copilot, ✅✅✅), [humanizer](./skills/extra-humanizer.md) (~28.7k, de-AI-ify prose, plain `SKILL.md`, ✅✅✅), and [Anthropic Cybersecurity Skills](./skills/extra-anthropic-cybersecurity-skills.md) (~25.3k, 817 framework-mapped security skills via the agentskills.io standard, ✅✅✅).
+
+### Changed
+- Star refresh across all existing entries (live GitHub API): 21 values ticked up — notably superpowers 246k→252k, karpathy 187.7k→190.7k, anthropic/skill-creator 158k→160.2k, gstack 119.5k→121.1k, ui-ux-pro-max 101k→104.2k, awesome-mcp 90k→90.6k, caveman 84.1k→87.9k, graphify 77.7k→82.1k, addyosmani 69k→77k, understand-anything 70.9k→72.7k, awesome-claude-skills 67k→67.4k, taste 56.6k→61.9k, last30days 49k→51.5k, antigravity 42.4k→42.8k, vercel 28.7k→28.9k, awesome-agent 27.3k→27.8k, planning 24.5k→25.2k, superclaude 23.4k→23.5k, context-eng 16.9k→17.1k, minimax 12.9k→13k.
+- Repo renames handled (old slugs redirect; links + install commands updated): `ComposioHQ/skills` → `composio-community/skills`; `sickn33/antigravity-awesome-skills` → `sickn33/agentic-awesome-skills`.
+- README skills badge now reports 10 core + 16 extra.
 
 ### Removed
 - Removed [ponytail](https://github.com/DietrichGebert/ponytail) from Extra picks and deleted its manifest entry. **Installing ponytail is not recommended** — its behavior nudging over-slices complex tasks into too many iterations, lengthening overall project completion time and increasing token consumption; see the Triage log in [`skills/INDEX.md`](./skills/INDEX.md) for the full rationale (benchmark caveats, always-on YAGNI bias, hook/runtime trust surface).
 
-### Changed
-- README skills badge now reports 10 core + 13 extra.
+### Notes
+- 4 new candidates deep-checked and logged as reviewed-not-added in the `skills/INDEX.md` Triage log: `claude-plugins-official` (CC-only), `obsidian-skills` (out-of-profile domain), `claude-code-templates` (CC-only), `agentskills/agentskills` (spec hub, not a pack). No repos flagged as archived/404.
 
 ## [2026-07-05] — Self-iterate run (full triage under the new rules)
 

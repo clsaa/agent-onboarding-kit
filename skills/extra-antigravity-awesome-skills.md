@@ -1,11 +1,11 @@
 # Antigravity Awesome Skills
 - **Category:** 1,800+ installable skills + installer CLI
 - **What it does:** A very large (1,800+) collection of installable skills with its own installer CLI for browsing and adding skills.
-- **Repo:** https://github.com/sickn33/antigravity-awesome-skills
+- **Repo:** https://github.com/sickn33/agentic-awesome-skills (renamed from `sickn33/antigravity-awesome-skills`; the old slug redirects)
 - **Compatibility:** Claude Code ✅ | Codex ✅ | OpenCode ✅
 - **Install:** _Directory / index — no single command._ Browse the repo and install individual skills via `npx skills add <owner/repo>` (or the repo's own installer where provided).
   - Claude Code: browse index / installer CLI
   - Codex / OpenCode / others: browse index / installer CLI
 - **Verify:** Ask the agent to list skills; entries installed via the installer CLI appear.
 - **When to use / skip:** Bonus pick — the widest breadth of any pick in this kit (1,800+ skills), useful for full-stack developers who want maximum optionality; use when you want to search a large catalog for a niche skill, skip if you prefer the smaller, more curated core 10 to avoid choice overload.
-- **Stars:** ~42.4k (as of 2026-07)
+- **Stars:** ~42.8k (as of 2026-07)

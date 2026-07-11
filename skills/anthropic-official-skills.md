@@ -8,4 +8,4 @@
   - Codex / OpenCode: clone `anthropics/skills`, then copy the desired `skills/<name>/SKILL.md` into your agent's skills directory. Distribution tooling is Claude-first (⚠️).
 - **Verify:** Ask the agent to list skills; document-skills appear.
 - **When to use / skip:** Use for document handling and as a reference for authoring your own skills; on Codex/OpenCode note SKILL.md files are consumable manually but tooling is Claude-first, so expect manual setup.
-- **Stars:** ~158k (as of 2026-07)
+- **Stars:** ~160.2k (as of 2026-07)

@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: n/a — Claude Code only
 - **Verify:** `/sc:` slash commands are available.
 - **When to use / skip:** Use when working in Claude Code and you want ready-made `/sc:` workflows; skip on Codex or OpenCode since it isn't supported there.
-- **Stars:** ~23.4k (as of 2026-07)
+- **Stars:** ~23.5k (as of 2026-07)

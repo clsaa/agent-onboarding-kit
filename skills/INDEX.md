@@ -12,16 +12,16 @@ This is the machine-readable manifest for the Agent Onboarding Kit: it lists eve
 
 | # | Skill | Type | Claude Code | Codex | OpenCode | Stars |
 |---|-------|------|:-----------:|:-----:|:--------:|-------|
-| 1 | [Superpowers](./superpowers.md) | Framework | ✅ | ✅ | ✅ | 246k |
-| 2 | [SuperClaude Framework](./superclaude-framework.md) | Framework | ✅ | ❌ | ❌ | 23.4k |
-| 3 | [MiniMax Skills](./minimax-skills.md) | Bundle | ✅ | ✅ | ✅ | 12.9k |
-| 4 | [Anthropic Official Skills](./anthropic-official-skills.md) | Bundle | ✅ | ⚠️ | ⚠️ | 158k |
-| 5 | [Vercel Agent Skills](./vercel-agent-skills.md) | Bundle | ✅ | ✅ | ✅ | 28.7k |
-| 6 | [Planning with Files](./planning-with-files.md) | Collection | ✅ | ✅ | ✅ | 24.5k |
-| 7 | [Context Engineering Skills](./context-engineering-skills.md) | Collection | ✅ | ✅ | ✅ | 16.9k |
+| 1 | [Superpowers](./superpowers.md) | Framework | ✅ | ✅ | ✅ | 252k |
+| 2 | [SuperClaude Framework](./superclaude-framework.md) | Framework | ✅ | ❌ | ❌ | 23.5k |
+| 3 | [MiniMax Skills](./minimax-skills.md) | Bundle | ✅ | ✅ | ✅ | 13k |
+| 4 | [Anthropic Official Skills](./anthropic-official-skills.md) | Bundle | ✅ | ⚠️ | ⚠️ | 160.2k |
+| 5 | [Vercel Agent Skills](./vercel-agent-skills.md) | Bundle | ✅ | ✅ | ✅ | 28.9k |
+| 6 | [Planning with Files](./planning-with-files.md) | Collection | ✅ | ✅ | ✅ | 25.2k |
+| 7 | [Context Engineering Skills](./context-engineering-skills.md) | Collection | ✅ | ✅ | ✅ | 17.1k |
 | 8 | [Composio Skills](./composio-skills.md) | Collection | ✅ | ✅ | ⚠️ | 0.1k |
 | 9 | [Antfu Skills](./antfu-skills.md) | Collection | ✅ | ✅ | ✅ | 5.5k |
-| 10 | [Awesome Agent Skills](./awesome-agent-skills.md) | Directory | ✅ | ✅ | ✅ | 27.3k |
+| 10 | [Awesome Agent Skills](./awesome-agent-skills.md) | Directory | ✅ | ✅ | ✅ | 27.8k |
 
 ## Extra picks
 
@@ -29,19 +29,22 @@ Opinionated extras oriented toward AI, architecture, and full-stack work. The co
 
 | # | Skill | Type | Claude Code | Codex | OpenCode | Stars |
 |---|-------|------|:-----------:|:-----:|:--------:|-------|
-| 1 | [addyosmani Agent Skills](./extra-addyosmani-agent-skills.md) | Collection | ✅ | ✅ | ✅ | 69k |
-| 2 | [skill-creator](./extra-skill-creator.md) | Bundle | ✅ | ⚠️ | ⚠️ | 158k |
-| 3 | [Awesome MCP Servers](./extra-awesome-mcp-servers.md) | Directory | ✅ | ✅ | ✅ | 90k |
-| 4 | [Antigravity Awesome Skills](./extra-antigravity-awesome-skills.md) | Directory | ✅ | ✅ | ✅ | 42.4k |
-| 5 | [Composio Awesome Claude Skills](./extra-awesome-claude-skills.md) | Directory | ✅ | ⚠️ | ⚠️ | 67k |
-| 6 | [Taste Skill](./extra-taste-skill.md) | Collection | ✅ | ✅ | ✅ | 56.6k |
-| 7 | [UI/UX Pro Max Skill](./extra-ui-ux-pro-max-skill.md) | Collection | ✅ | ⚠️ | ⚠️ | 101k |
-| 8 | [Graphify](./extra-graphify.md) | Collection | ✅ | ✅ | ✅ | 77.7k |
-| 9 | [caveman](./extra-caveman.md) | Collection | ✅ | ✅ | ✅ | 84.1k |
-| 10 | [gstack](./extra-gstack.md) | Collection | ✅ | ✅ | ✅ | 119.5k |
-| 11 | [Understand Anything](./extra-understand-anything.md) | Collection | ✅ | ✅ | ✅ | 70.9k |
-| 12 | [last30days](./extra-last30days-skill.md) | Collection | ✅ | ✅ | ✅ | 49k |
-| 13 | [Andrej Karpathy Skills](./extra-andrej-karpathy-skills.md) | Collection | ✅ | ❌ | ❌ | 187.7k |
+| 1 | [addyosmani Agent Skills](./extra-addyosmani-agent-skills.md) | Collection | ✅ | ✅ | ✅ | 77k |
+| 2 | [skill-creator](./extra-skill-creator.md) | Bundle | ✅ | ⚠️ | ⚠️ | 160.2k |
+| 3 | [Awesome MCP Servers](./extra-awesome-mcp-servers.md) | Directory | ✅ | ✅ | ✅ | 90.6k |
+| 4 | [Antigravity Awesome Skills](./extra-antigravity-awesome-skills.md) | Directory | ✅ | ✅ | ✅ | 42.8k |
+| 5 | [Composio Awesome Claude Skills](./extra-awesome-claude-skills.md) | Directory | ✅ | ⚠️ | ⚠️ | 67.4k |
+| 6 | [Taste Skill](./extra-taste-skill.md) | Collection | ✅ | ✅ | ✅ | 61.9k |
+| 7 | [UI/UX Pro Max Skill](./extra-ui-ux-pro-max-skill.md) | Collection | ✅ | ⚠️ | ⚠️ | 104.2k |
+| 8 | [Graphify](./extra-graphify.md) | Collection | ✅ | ✅ | ✅ | 82.1k |
+| 9 | [caveman](./extra-caveman.md) | Collection | ✅ | ✅ | ✅ | 87.9k |
+| 10 | [gstack](./extra-gstack.md) | Collection | ✅ | ✅ | ✅ | 121.1k |
+| 11 | [Understand Anything](./extra-understand-anything.md) | Collection | ✅ | ✅ | ✅ | 72.7k |
+| 12 | [last30days](./extra-last30days-skill.md) | Collection | ✅ | ✅ | ✅ | 51.5k |
+| 13 | [Andrej Karpathy Skills](./extra-andrej-karpathy-skills.md) | Collection | ✅ | ❌ | ❌ | 190.7k |
+| 14 | [wshobson Agents](./extra-wshobson-agents.md) | Collection | ✅ | ✅ | ✅ | 37.8k |
+| 15 | [humanizer](./extra-humanizer.md) | Collection | ✅ | ✅ | ✅ | 28.7k |
+| 16 | [Anthropic Cybersecurity Skills](./extra-anthropic-cybersecurity-skills.md) | Collection | ✅ | ✅ | ✅ | 25.3k |
 
 ## Triage log (reviewed, not added)
 
@@ -52,6 +55,10 @@ Deep-checked candidates rejected with a dated reason, so future self-iterate run
   - **Benchmarks don't generalize.** Upstream's headline numbers (−54% LOC, −27% time) are `n=4` on a single FastAPI+React repo with Haiku 4.5; the repo itself notes gains are "near-zero where code is already minimal" and large only in "over-building traps." There's no evidence of benefit on complex tasks, where the ladder overhead can be net-negative.
   - **Always-on YAGNI bias.** The ruleset is injected into every task (and into subagents via a regex matcher). Applied indiscriminately it can under-build genuinely needed structure and defer necessary work — it even ships `/ponytail-debt` to later harvest the shortcuts it accumulates.
   - **Operational cost & trust surface.** Requires Node.js on PATH and runs lifecycle hooks on Claude Code / Codex / Devin (code execution on every turn); mode is process-local, so on shared gateways `/ponytail` must be restricted to trusted users.
+- [claude-plugins-official](https://github.com/anthropics/claude-plugins-official) — 2026-07-11 — Anthropic's official plugin marketplace, but Claude Code-only and mixes MCP servers/plugins (with an explicit trust caveat); manifest prefers cross-agent and already carries `anthropics/skills`.
+- [obsidian-skills](https://github.com/kepano/obsidian-skills) — 2026-07-11 — clean cross-agent (CC/Codex/OpenCode) Agent-Skills pack, but domain-specific to Obsidian note-taking, outside this manifest's dev-workflow profile.
+- [claude-code-templates](https://github.com/davila7/claude-code-templates) — 2026-07-11 — Claude Code-only CLI/config system (agents/commands/MCPs/hooks), not a cross-agent skill pack.
+- [agentskills/agentskills](https://github.com/agentskills/agentskills) — 2026-07-11 — the Agent Skills spec/registry hub (agentskills.io), a standard + client showcase, not an installable skill pack itself.
 - [headroom](https://github.com/headroomlabs-ai/headroom) — 2026-07-04 — compression library/proxy/MCP server, not an agent skill (out of scope).
 - [Agent-Reach](https://github.com/Panniantong/Agent-Reach) — 2026-07-04 — web-access CLI/MCP tooling, not a SKILL.md-style skill (out of scope).
 - [mattpocock/skills](https://github.com/mattpocock/skills) — 2026-07-04 — Claude Code-only (`.claude` conventions); manifest prefers cross-agent.

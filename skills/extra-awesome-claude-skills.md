@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: browse index
 - **Verify:** Ask the agent to list skills; entries chosen from the index appear.
 - **When to use / skip:** Bonus pick — a system architect's integrations catalog, complementing Composio Skills (#8) with a broader curated index of Claude-specific skills; use when scouting for Claude-specific skills beyond this kit's core picks, skip if you only need the MCP/service integrations already covered by Composio Skills (#8).
-- **Stars:** ~67k (as of 2026-07)
+- **Stars:** ~67.4k (as of 2026-07)

@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: `npx skills add vercel-labs/agent-skills`
 - **Verify:** Ask the agent to list skills; Vercel design/review skills appear.
 - **When to use / skip:** Use for React/Web front-end projects needing design and review conventions; skip for non-web projects.
-- **Stars:** ~28.7k (as of 2026-07)
+- **Stars:** ~28.9k (as of 2026-07)

@@ -8,4 +8,4 @@
   - Codex / OpenCode / others: n/a — README documents Claude Code and Cursor only (per-project use: copy the repo's `CLAUDE.md` into your project)
 - **Verify:** The Karpathy guidelines influence responses (agent states principles when asked about its coding rules).
 - **When to use / skip:** Included despite being single-agent because it's exceptionally notable — a widely adopted, minimal rules pack. Use for discipline against over-engineering on Claude Code; skip on Codex/OpenCode (undocumented).
-- **Stars:** ~187.7k (as of 2026-07)
+- **Stars:** ~190.7k (as of 2026-07)

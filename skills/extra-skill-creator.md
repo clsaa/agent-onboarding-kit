@@ -8,4 +8,4 @@
   - Codex / OpenCode: clone `anthropics/skills`, then copy `skills/skill-creator/SKILL.md` into your agent's skills directory. Distribution tooling is Claude-first (⚠️).
 - **Verify:** Ask the agent to list skills; skill-creator appears.
 - **When to use / skip:** Bonus pick — same repo as core pick #4 (Anthropic Official Skills), called out separately because it's the meta-skill an AI expert needs to build and iterate on their own skills, not a domain skill; use once you're ready to author custom skills for this kit or your own projects, skip if you only plan to consume existing skills.
-- **Stars:** ~158k (as of 2026-07)
+- **Stars:** ~160.2k (as of 2026-07)

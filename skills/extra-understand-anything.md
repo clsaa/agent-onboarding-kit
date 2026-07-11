@@ -9,4 +9,4 @@
   - OpenCode: same installer with `bash -s opencode`
 - **Verify:** Ask the agent to list skills/commands; the understand-anything commands appear.
 - **When to use / skip:** Bonus pick for onboarding into large or unfamiliar codebases (architecture work); its README documents an unusually wide agent-support table. Overlaps somewhat with Graphify — pick one; skip both for small repos you already know.
-- **Stars:** ~70.9k (as of 2026-07)
+- **Stars:** ~72.7k (as of 2026-07)

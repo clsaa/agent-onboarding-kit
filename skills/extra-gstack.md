@@ -9,4 +9,4 @@
   - OpenCode: same clone, then `./setup --host opencode`
 - **Verify:** Ask the agent to list skills; the gstack role commands appear.
 - **When to use / skip:** Bonus pick for solo devs who want structured multi-role review pressure (architecture / full-stack). It's opinionated and large (23 commands) — skip if you prefer a minimal skill set.
-- **Stars:** ~119.5k (as of 2026-07)
+- **Stars:** ~121.1k (as of 2026-07)

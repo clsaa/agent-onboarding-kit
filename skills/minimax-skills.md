@@ -21,4 +21,4 @@
     Restart OpenCode to discover the skills. See [`.opencode/INSTALL.md`](https://github.com/MiniMax-AI/skills/blob/main/.opencode/INSTALL.md) for details.
 - **Verify:** Ask the agent to list skills; MiniMax workflow cards appear.
 - **When to use / skip:** Use when you want ready-made workflow cards for common tasks; skip if you already have an equivalent skill set installed.
-- **Stars:** ~12.9k (as of 2026-07)
+- **Stars:** ~13k (as of 2026-07)
