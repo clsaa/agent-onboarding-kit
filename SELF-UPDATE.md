@@ -50,7 +50,7 @@ Keep only candidates that fit two constraints at once:
 - **Repo scope:** cross-agent tools that work across Claude Code, Codex, and OpenCode (prefer `[desc:multi]` rows; take single-agent tools only if exceptionally notable).
 - **Maintainer profile:** AI / system-architecture / full-stack — favor tools that extend those three hats, like the existing "Extra picks".
 
-**Triage rules — rejecting takes the same rigor as adding.** (Post-mortem: ponytail and caveman were wrongly skipped in the 2026-07-04 run on description-derived signals; both turned out to be verified cross-agent.)
+**Triage rules — rejecting takes the same rigor as adding.** (Post-mortem: caveman was wrongly skipped in the 2026-07-04 run on description-derived signals; it turned out to be verified cross-agent.)
 
 1. The `[desc:*]` hint comes from the repo's description/topics only and is frequently wrong — caveman's description said "Claude Code skill" while its INSTALL.md documents 30+ agents. Use the hint to order your review, **never** as a reason to reject.
 2. Before rejecting any candidate with more stars than the lowest-starred entry already in the manifest, open its README/INSTALL and check its actual agent-support docs. Do not judge by tone — meme-flavored repos can carry real, verified utility.

@@ -6,6 +6,12 @@ date-based entries rather than SemVer versions. See [`SELF-UPDATE.md`](./SELF-UP
 
 ## [Unreleased]
 
+### Removed
+- Removed [ponytail](https://github.com/DietrichGebert/ponytail) from Extra picks and deleted its manifest entry. **Installing ponytail is not recommended** — its behavior nudging over-slices complex tasks into too many iterations, lengthening overall project completion time and increasing token consumption; see the Triage log in [`skills/INDEX.md`](./skills/INDEX.md) for the full rationale (benchmark caveats, always-on YAGNI bias, hook/runtime trust surface).
+
+### Changed
+- README skills badge now reports 10 core + 13 extra.
+
 ## [2026-07-05] — Self-iterate run (full triage under the new rules)
 
 ### Added
@@ -14,7 +20,7 @@ date-based entries rather than SemVer versions. See [`SELF-UPDATE.md`](./SELF-UP
 
 ### Changed
 - **Renamed: `agent-onboarding-kit` → `skillrc`** ("the rc file for your AI coding agent"). Old GitHub URLs redirect automatically; all in-repo references updated.
-- Star refresh across all existing entries: 8 values ticked up (awesome-agent-skills 27.3k, addyosmani 69k, antigravity 42.4k, graphify 77.7k, taste-skill 56.6k, ui-ux-pro-max 101k, planning-with-files 24.5k, vercel 28.7k). README badge → 10 core + 14 extra.
+- Star refresh across all existing entries: 8 values ticked up (awesome-agent-skills 27.3k, addyosmani 69k, antigravity 42.4k, graphify 77.7k, taste-skill 56.6k, ui-ux-pro-max 101k, planning-with-files 24.5k, vercel 28.7k). README badge → 10 core + 13 extra.
 
 ### Notes
 - First run under the post-mortem triage rules: all 26 unlogged candidates above the star floor were deep-checked (README/INSTALL read) before any rejection — none rejected on description-derived hints. E2E gate green.
@@ -22,11 +28,11 @@ date-based entries rather than SemVer versions. See [`SELF-UPDATE.md`](./SELF-UP
 ## [2026-07-05]
 
 ### Added
-- 2 extra picks (both cross-agent, per-agent installs verified from upstream READMEs): [ponytail](./skills/extra-ponytail.md) (`DietrichGebert/ponytail`, ~74k — YAGNI / code-minimalism skill) and [caveman](./skills/extra-caveman.md) (`JuliusBrussee/caveman`, ~84.1k — output-token reduction). Both were seen in an earlier discovery pass and initially skipped; re-reviewed and confirmed ✅✅✅.
-- README skills badge updated to 10 core + 10 extra.
+- Extra pick: [caveman](./skills/extra-caveman.md) (`JuliusBrussee/caveman`, ~84.1k — output-token reduction). It was seen in an earlier discovery pass and initially skipped; re-reviewed and confirmed ✅✅✅.
+- README skills badge updated to 10 core + 9 extra.
 
 ### Changed
-- Curation mechanism hardened after a triage post-mortem (the two picks above were skipped in the 07-04 run on description-derived signals): `scripts/discover.sh` hints are renamed to `desc:*` and explicitly marked non-rejecting; `SELF-UPDATE.md` §B.2 gained triage rules (rejection requires the same verification rigor as acceptance; never judge by tone) and a persistent **Triage log** in `skills/INDEX.md`, seeded with the 07-04 deep-checked rejections.
+- Curation mechanism hardened after a triage post-mortem (the pick above was skipped in the 07-04 run on description-derived signals): `scripts/discover.sh` hints are renamed to `desc:*` and explicitly marked non-rejecting; `SELF-UPDATE.md` §B.2 gained triage rules (rejection requires the same verification rigor as acceptance; never judge by tone) and a persistent **Triage log** in `skills/INDEX.md`, seeded with the 07-04 deep-checked rejections.
 
 ## [2026-07-04] — Self-iterate run
 

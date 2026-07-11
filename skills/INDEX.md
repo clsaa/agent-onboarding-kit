@@ -37,17 +37,21 @@ Opinionated extras oriented toward AI, architecture, and full-stack work. The co
 | 6 | [Taste Skill](./extra-taste-skill.md) | Collection | ✅ | ✅ | ✅ | 56.6k |
 | 7 | [UI/UX Pro Max Skill](./extra-ui-ux-pro-max-skill.md) | Collection | ✅ | ⚠️ | ⚠️ | 101k |
 | 8 | [Graphify](./extra-graphify.md) | Collection | ✅ | ✅ | ✅ | 77.7k |
-| 9 | [ponytail](./extra-ponytail.md) | Collection | ✅ | ✅ | ✅ | 74k |
-| 10 | [caveman](./extra-caveman.md) | Collection | ✅ | ✅ | ✅ | 84.1k |
-| 11 | [gstack](./extra-gstack.md) | Collection | ✅ | ✅ | ✅ | 119.5k |
-| 12 | [Understand Anything](./extra-understand-anything.md) | Collection | ✅ | ✅ | ✅ | 70.9k |
-| 13 | [last30days](./extra-last30days-skill.md) | Collection | ✅ | ✅ | ✅ | 49k |
-| 14 | [Andrej Karpathy Skills](./extra-andrej-karpathy-skills.md) | Collection | ✅ | ❌ | ❌ | 187.7k |
+| 9 | [caveman](./extra-caveman.md) | Collection | ✅ | ✅ | ✅ | 84.1k |
+| 10 | [gstack](./extra-gstack.md) | Collection | ✅ | ✅ | ✅ | 119.5k |
+| 11 | [Understand Anything](./extra-understand-anything.md) | Collection | ✅ | ✅ | ✅ | 70.9k |
+| 12 | [last30days](./extra-last30days-skill.md) | Collection | ✅ | ✅ | ✅ | 49k |
+| 13 | [Andrej Karpathy Skills](./extra-andrej-karpathy-skills.md) | Collection | ✅ | ❌ | ❌ | 187.7k |
 
 ## Triage log (reviewed, not added)
 
 Deep-checked candidates rejected with a dated reason, so future self-iterate runs neither re-review them needlessly nor re-skip others on weak signals (see `SELF-UPDATE.md` §B.2). A logged rejection may be revisited if the repo materially changes.
 
+- [ponytail](https://github.com/DietrichGebert/ponytail) — 2026-07-09 — removed from Extra picks. **Installing it is not recommended.** Problems observed in use:
+  - **Over-slices complex tasks.** The 7-rung "decision ladder" runs before every change and biases toward the *minimum viable implementation*, so complex/architectural work gets chopped into many small iterations — more agent round-trips, longer overall completion time, and (despite each diff being smaller) more total tokens spent on the extra steps.
+  - **Benchmarks don't generalize.** Upstream's headline numbers (−54% LOC, −27% time) are `n=4` on a single FastAPI+React repo with Haiku 4.5; the repo itself notes gains are "near-zero where code is already minimal" and large only in "over-building traps." There's no evidence of benefit on complex tasks, where the ladder overhead can be net-negative.
+  - **Always-on YAGNI bias.** The ruleset is injected into every task (and into subagents via a regex matcher). Applied indiscriminately it can under-build genuinely needed structure and defer necessary work — it even ships `/ponytail-debt` to later harvest the shortcuts it accumulates.
+  - **Operational cost & trust surface.** Requires Node.js on PATH and runs lifecycle hooks on Claude Code / Codex / Devin (code execution on every turn); mode is process-local, so on shared gateways `/ponytail` must be restricted to trusted users.
 - [headroom](https://github.com/headroomlabs-ai/headroom) — 2026-07-04 — compression library/proxy/MCP server, not an agent skill (out of scope).
 - [Agent-Reach](https://github.com/Panniantong/Agent-Reach) — 2026-07-04 — web-access CLI/MCP tooling, not a SKILL.md-style skill (out of scope).
 - [mattpocock/skills](https://github.com/mattpocock/skills) — 2026-07-04 — Claude Code-only (`.claude` conventions); manifest prefers cross-agent.
